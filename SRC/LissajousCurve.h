@@ -18,6 +18,9 @@ public:
 	void set_alpha(double alpha) { _alpha = alpha; };
 	void set_beta(double beta) { _beta = beta; };
 	void set_gamma(double gamma) { _gamma = gamma; };
+	void set_f(double f) { _f = f; };
+	void set_g(double g) { _g = g; };
+	void set_h(double h) { _h = h; };
 
 
 private:

@@ -1,6 +1,8 @@
+#pragma once
+
 #include <stdio.h>
 
-class Vector4{
+struct Vector4{
 
 	public:
 		double data[4];
