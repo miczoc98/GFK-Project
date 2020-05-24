@@ -18,22 +18,21 @@ class GUIMyFrame1 : public MyFrame1
 		// Handlers for MyFrame1 events.
 		void m_button_kart_click( wxCommandEvent& event );
 		void m_button_biegun_click( wxCommandEvent& event );
-		void m_slider_a_scroll(wxScrollEvent& event);
-		void m_slider_b_scroll(wxScrollEvent& event);
-		void m_slider_c_scroll(wxScrollEvent& event);
-		void m_slider_phi_scroll(wxScrollEvent& event);
-		void m_slider_psi_scroll(wxScrollEvent& event);
-		void m_slider_teta_scroll(wxScrollEvent& event);
-		void m_slider_n_scroll(wxScrollEvent& event);
-		void m_slider_m_scroll(wxScrollEvent& event);
-		void m_slider_k_scroll(wxScrollEvent& event);
-		void m_slider_x_scroll(wxScrollEvent& event);
-		void m_slider_y_scroll(wxScrollEvent& event);
-		void m_slider_z_scroll(wxScrollEvent& event);
+		void m_slider_a_scroll( wxScrollEvent& event );
+		void m_slider_b_scroll( wxScrollEvent& event );
+		void m_slider_c_scroll( wxScrollEvent& event );
+		void m_slider_phi_scroll( wxScrollEvent& event );
+		void m_slider_psi_scroll( wxScrollEvent& event );
+		void m_slider_teta_scroll( wxScrollEvent& event );
+		void m_slider_n_scroll( wxScrollEvent& event );
+		void m_slider_m_scroll( wxScrollEvent& event );
+		void m_slider_k_scroll( wxScrollEvent& event );
+		void m_slider_x_scroll( wxScrollEvent& event );
+		void m_slider_y_scroll( wxScrollEvent& event );
+		void m_slider_z_scroll( wxScrollEvent& event );
 		void m_checkBoxDot_check( wxCommandEvent& event );
 		void m_checkBoxLine_check( wxCommandEvent& event );
 		void m_checkBoxAnimuj_clicked( wxCommandEvent& event );
-
 	public:
 		/** Constructor */
 		GUIMyFrame1( wxWindow* parent );
@@ -42,6 +41,8 @@ class GUIMyFrame1 : public MyFrame1
 		bool m_uklad_kart = true;
 
 		void Repaint();
+
+
 
 };
 
