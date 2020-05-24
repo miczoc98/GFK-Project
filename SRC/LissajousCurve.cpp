@@ -18,9 +18,9 @@ LissajousCurve::LissajousCurve()
 
 Point LissajousCurve::get_pos(double t)
 {
-	double x = _A * sin(_alpha * t);
-	double y = _B * sin(_beta * t);
-	double z = _C * sin(_gamma * t);
+	double x = _A * sin(_alpha * t + _f);
+	double y = _B * sin(_beta * t + _g);
+	double z = _C * sin(_gamma * t + _h);
 
 	return Point(x, y, z);
 }
