@@ -48,6 +48,14 @@ class MyFrame1 : public wxFrame
 		wxSlider* m_slider_phi;
 		wxStaticText* m_staticText7;
 		wxSlider* m_slider_psi;
+		wxStaticText* m_staticText10;
+		wxSlider* m_slider_teta;
+		wxStaticText* m_staticText11;
+		wxSlider* m_slider_n;
+		wxStaticText* m_staticText12;
+		wxSlider* m_slider_m;
+		wxStaticText* m_staticText13;
+		wxSlider* m_slider_k;
 		wxStaticText* m_staticTextRotation;
 		wxStaticText* m_staticTextX;
 		wxSlider* m_slider_x;
@@ -63,6 +71,18 @@ class MyFrame1 : public wxFrame
 		// Virtual event handlers, overide them in your derived class
 		virtual void m_button_kart_click( wxCommandEvent& event ) { event.Skip(); }
 		virtual void m_button_biegun_click( wxCommandEvent& event ) { event.Skip(); }
+		virtual void m_slider_a_scroll( wxScrollEvent& event ) { event.Skip(); }
+		virtual void m_slider_b_scroll( wxScrollEvent& event ) { event.Skip(); }
+		virtual void m_slider_c_scroll( wxScrollEvent& event ) { event.Skip(); }
+		virtual void m_slider_phi_scroll( wxScrollEvent& event ) { event.Skip(); }
+		virtual void m_slider_psi_scroll( wxScrollEvent& event ) { event.Skip(); }
+		virtual void m_slider_teta_scroll( wxScrollEvent& event ) { event.Skip(); }
+		virtual void m_slider_n_scroll( wxScrollEvent& event ) { event.Skip(); }
+		virtual void m_slider_m_scroll( wxScrollEvent& event ) { event.Skip(); }
+		virtual void m_slider_k_scroll( wxScrollEvent& event ) { event.Skip(); }
+		virtual void m_slider_x_scroll( wxScrollEvent& event ) { event.Skip(); }
+		virtual void m_slider_y_scroll( wxScrollEvent& event ) { event.Skip(); }
+		virtual void m_slider_z_scroll( wxScrollEvent& event ) { event.Skip(); }
 		virtual void m_checkBoxDot_check( wxCommandEvent& event ) { event.Skip(); }
 		virtual void m_checkBoxLine_check( wxCommandEvent& event ) { event.Skip(); }
 		virtual void m_checkBoxAnimuj_clicked( wxCommandEvent& event ) { event.Skip(); }
@@ -70,7 +90,7 @@ class MyFrame1 : public wxFrame
 
 	public:
 
-		MyFrame1( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxT("Krzywe Lissajous"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 800,600 ), long style = wxDEFAULT_FRAME_STYLE|wxTAB_TRAVERSAL );
+		MyFrame1( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxT("Krzywe Lissajous"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 1000,800 ), long style = wxDEFAULT_FRAME_STYLE|wxTAB_TRAVERSAL );
 
 		~MyFrame1();
 

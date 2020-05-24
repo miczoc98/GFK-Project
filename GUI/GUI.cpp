@@ -86,7 +86,7 @@ MyFrame1::MyFrame1( wxWindow* parent, wxWindowID id, const wxString& title, cons
 	bSizer8->Add( m_staticText6, 0, wxALL, 5 );
 
 	m_slider_phi = new wxSlider( this, wxID_ANY, 50, 0, 100, wxDefaultPosition, wxDefaultSize, wxSL_BOTH|wxSL_HORIZONTAL|wxSL_VALUE_LABEL );
-	m_slider_phi->SetMaxSize( wxSize( 215,35 ) );
+	m_slider_phi->SetMaxSize( wxSize( 210,35 ) );
 
 	bSizer8->Add( m_slider_phi, 1, wxALL, 5 );
 
@@ -103,12 +103,76 @@ MyFrame1::MyFrame1( wxWindow* parent, wxWindowID id, const wxString& title, cons
 	bSizer9->Add( m_staticText7, 0, wxALL, 5 );
 
 	m_slider_psi = new wxSlider( this, wxID_ANY, 50, 0, 100, wxDefaultPosition, wxDefaultSize, wxSL_BOTH|wxSL_HORIZONTAL|wxSL_VALUE_LABEL );
-	m_slider_psi->SetMaxSize( wxSize( 215,35 ) );
+	m_slider_psi->SetMaxSize( wxSize( 210,35 ) );
 
 	bSizer9->Add( m_slider_psi, 1, wxALL, 5 );
 
 
 	bSizer2->Add( bSizer9, 0, wxEXPAND, 5 );
+
+	wxBoxSizer* bSizer151;
+	bSizer151 = new wxBoxSizer( wxHORIZONTAL );
+
+	m_staticText10 = new wxStaticText( this, wxID_ANY, wxT("q:"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticText10->Wrap( -1 );
+	m_staticText10->SetFont( wxFont( 9, wxFONTFAMILY_ROMAN, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL, false, wxT("Symbol") ) );
+
+	bSizer151->Add( m_staticText10, 0, wxALL, 5 );
+
+	m_slider_teta = new wxSlider( this, wxID_ANY, 50, 0, 100, wxDefaultPosition, wxDefaultSize, wxSL_BOTH|wxSL_HORIZONTAL|wxSL_VALUE_LABEL );
+	m_slider_teta->SetMaxSize( wxSize( 215,35 ) );
+
+	bSizer151->Add( m_slider_teta, 1, wxALL, 5 );
+
+
+	bSizer2->Add( bSizer151, 0, wxEXPAND, 5 );
+
+	wxBoxSizer* bSizer16;
+	bSizer16 = new wxBoxSizer( wxHORIZONTAL );
+
+	m_staticText11 = new wxStaticText( this, wxID_ANY, wxT("n:"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticText11->Wrap( -1 );
+	bSizer16->Add( m_staticText11, 0, wxALL, 5 );
+
+	m_slider_n = new wxSlider( this, wxID_ANY, 50, 0, 100, wxDefaultPosition, wxDefaultSize, wxSL_BOTH|wxSL_HORIZONTAL|wxSL_VALUE_LABEL );
+	m_slider_n->SetMaxSize( wxSize( 215,35 ) );
+
+	bSizer16->Add( m_slider_n, 1, wxALL, 5 );
+
+
+	bSizer2->Add( bSizer16, 0, wxEXPAND, 5 );
+
+	wxBoxSizer* bSizer17;
+	bSizer17 = new wxBoxSizer( wxHORIZONTAL );
+
+	m_staticText12 = new wxStaticText( this, wxID_ANY, wxT("m:"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticText12->Wrap( -1 );
+	m_staticText12->SetMaxSize( wxSize( 215,35 ) );
+
+	bSizer17->Add( m_staticText12, 0, wxALL, 5 );
+
+	m_slider_m = new wxSlider( this, wxID_ANY, 50, 0, 100, wxDefaultPosition, wxDefaultSize, wxSL_BOTH|wxSL_HORIZONTAL|wxSL_VALUE_LABEL );
+	m_slider_m->SetMaxSize( wxSize( 215,35 ) );
+
+	bSizer17->Add( m_slider_m, 1, wxALL, 5 );
+
+
+	bSizer2->Add( bSizer17, 0, wxEXPAND, 5 );
+
+	wxBoxSizer* bSizer18;
+	bSizer18 = new wxBoxSizer( wxHORIZONTAL );
+
+	m_staticText13 = new wxStaticText( this, wxID_ANY, wxT("k:"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticText13->Wrap( -1 );
+	bSizer18->Add( m_staticText13, 0, wxALL, 5 );
+
+	m_slider_k = new wxSlider( this, wxID_ANY, 50, 0, 100, wxDefaultPosition, wxDefaultSize, wxSL_BOTH|wxSL_HORIZONTAL|wxSL_VALUE_LABEL );
+	m_slider_k->SetMaxSize( wxSize( 215,35 ) );
+
+	bSizer18->Add( m_slider_k, 1, wxALL, 5 );
+
+
+	bSizer2->Add( bSizer18, 0, wxEXPAND, 5 );
 
 	wxBoxSizer* bSizer14;
 	bSizer14 = new wxBoxSizer( wxVERTICAL );
@@ -204,6 +268,114 @@ MyFrame1::MyFrame1( wxWindow* parent, wxWindowID id, const wxString& title, cons
 	// Connect Events
 	m_button_kart->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( MyFrame1::m_button_kart_click ), NULL, this );
 	m_button_biegun->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( MyFrame1::m_button_biegun_click ), NULL, this );
+	m_slider_a->Connect( wxEVT_SCROLL_TOP, wxScrollEventHandler( MyFrame1::m_slider_a_scroll ), NULL, this );
+	m_slider_a->Connect( wxEVT_SCROLL_BOTTOM, wxScrollEventHandler( MyFrame1::m_slider_a_scroll ), NULL, this );
+	m_slider_a->Connect( wxEVT_SCROLL_LINEUP, wxScrollEventHandler( MyFrame1::m_slider_a_scroll ), NULL, this );
+	m_slider_a->Connect( wxEVT_SCROLL_LINEDOWN, wxScrollEventHandler( MyFrame1::m_slider_a_scroll ), NULL, this );
+	m_slider_a->Connect( wxEVT_SCROLL_PAGEUP, wxScrollEventHandler( MyFrame1::m_slider_a_scroll ), NULL, this );
+	m_slider_a->Connect( wxEVT_SCROLL_PAGEDOWN, wxScrollEventHandler( MyFrame1::m_slider_a_scroll ), NULL, this );
+	m_slider_a->Connect( wxEVT_SCROLL_THUMBTRACK, wxScrollEventHandler( MyFrame1::m_slider_a_scroll ), NULL, this );
+	m_slider_a->Connect( wxEVT_SCROLL_THUMBRELEASE, wxScrollEventHandler( MyFrame1::m_slider_a_scroll ), NULL, this );
+	m_slider_a->Connect( wxEVT_SCROLL_CHANGED, wxScrollEventHandler( MyFrame1::m_slider_a_scroll ), NULL, this );
+	m_slider_b->Connect( wxEVT_SCROLL_TOP, wxScrollEventHandler( MyFrame1::m_slider_b_scroll ), NULL, this );
+	m_slider_b->Connect( wxEVT_SCROLL_BOTTOM, wxScrollEventHandler( MyFrame1::m_slider_b_scroll ), NULL, this );
+	m_slider_b->Connect( wxEVT_SCROLL_LINEUP, wxScrollEventHandler( MyFrame1::m_slider_b_scroll ), NULL, this );
+	m_slider_b->Connect( wxEVT_SCROLL_LINEDOWN, wxScrollEventHandler( MyFrame1::m_slider_b_scroll ), NULL, this );
+	m_slider_b->Connect( wxEVT_SCROLL_PAGEUP, wxScrollEventHandler( MyFrame1::m_slider_b_scroll ), NULL, this );
+	m_slider_b->Connect( wxEVT_SCROLL_PAGEDOWN, wxScrollEventHandler( MyFrame1::m_slider_b_scroll ), NULL, this );
+	m_slider_b->Connect( wxEVT_SCROLL_THUMBTRACK, wxScrollEventHandler( MyFrame1::m_slider_b_scroll ), NULL, this );
+	m_slider_b->Connect( wxEVT_SCROLL_THUMBRELEASE, wxScrollEventHandler( MyFrame1::m_slider_b_scroll ), NULL, this );
+	m_slider_b->Connect( wxEVT_SCROLL_CHANGED, wxScrollEventHandler( MyFrame1::m_slider_b_scroll ), NULL, this );
+	m_slider_c->Connect( wxEVT_SCROLL_TOP, wxScrollEventHandler( MyFrame1::m_slider_c_scroll ), NULL, this );
+	m_slider_c->Connect( wxEVT_SCROLL_BOTTOM, wxScrollEventHandler( MyFrame1::m_slider_c_scroll ), NULL, this );
+	m_slider_c->Connect( wxEVT_SCROLL_LINEUP, wxScrollEventHandler( MyFrame1::m_slider_c_scroll ), NULL, this );
+	m_slider_c->Connect( wxEVT_SCROLL_LINEDOWN, wxScrollEventHandler( MyFrame1::m_slider_c_scroll ), NULL, this );
+	m_slider_c->Connect( wxEVT_SCROLL_PAGEUP, wxScrollEventHandler( MyFrame1::m_slider_c_scroll ), NULL, this );
+	m_slider_c->Connect( wxEVT_SCROLL_PAGEDOWN, wxScrollEventHandler( MyFrame1::m_slider_c_scroll ), NULL, this );
+	m_slider_c->Connect( wxEVT_SCROLL_THUMBTRACK, wxScrollEventHandler( MyFrame1::m_slider_c_scroll ), NULL, this );
+	m_slider_c->Connect( wxEVT_SCROLL_THUMBRELEASE, wxScrollEventHandler( MyFrame1::m_slider_c_scroll ), NULL, this );
+	m_slider_c->Connect( wxEVT_SCROLL_CHANGED, wxScrollEventHandler( MyFrame1::m_slider_c_scroll ), NULL, this );
+	m_slider_phi->Connect( wxEVT_SCROLL_TOP, wxScrollEventHandler( MyFrame1::m_slider_phi_scroll ), NULL, this );
+	m_slider_phi->Connect( wxEVT_SCROLL_BOTTOM, wxScrollEventHandler( MyFrame1::m_slider_phi_scroll ), NULL, this );
+	m_slider_phi->Connect( wxEVT_SCROLL_LINEUP, wxScrollEventHandler( MyFrame1::m_slider_phi_scroll ), NULL, this );
+	m_slider_phi->Connect( wxEVT_SCROLL_LINEDOWN, wxScrollEventHandler( MyFrame1::m_slider_phi_scroll ), NULL, this );
+	m_slider_phi->Connect( wxEVT_SCROLL_PAGEUP, wxScrollEventHandler( MyFrame1::m_slider_phi_scroll ), NULL, this );
+	m_slider_phi->Connect( wxEVT_SCROLL_PAGEDOWN, wxScrollEventHandler( MyFrame1::m_slider_phi_scroll ), NULL, this );
+	m_slider_phi->Connect( wxEVT_SCROLL_THUMBTRACK, wxScrollEventHandler( MyFrame1::m_slider_phi_scroll ), NULL, this );
+	m_slider_phi->Connect( wxEVT_SCROLL_THUMBRELEASE, wxScrollEventHandler( MyFrame1::m_slider_phi_scroll ), NULL, this );
+	m_slider_phi->Connect( wxEVT_SCROLL_CHANGED, wxScrollEventHandler( MyFrame1::m_slider_phi_scroll ), NULL, this );
+	m_slider_psi->Connect( wxEVT_SCROLL_TOP, wxScrollEventHandler( MyFrame1::m_slider_psi_scroll ), NULL, this );
+	m_slider_psi->Connect( wxEVT_SCROLL_BOTTOM, wxScrollEventHandler( MyFrame1::m_slider_psi_scroll ), NULL, this );
+	m_slider_psi->Connect( wxEVT_SCROLL_LINEUP, wxScrollEventHandler( MyFrame1::m_slider_psi_scroll ), NULL, this );
+	m_slider_psi->Connect( wxEVT_SCROLL_LINEDOWN, wxScrollEventHandler( MyFrame1::m_slider_psi_scroll ), NULL, this );
+	m_slider_psi->Connect( wxEVT_SCROLL_PAGEUP, wxScrollEventHandler( MyFrame1::m_slider_psi_scroll ), NULL, this );
+	m_slider_psi->Connect( wxEVT_SCROLL_PAGEDOWN, wxScrollEventHandler( MyFrame1::m_slider_psi_scroll ), NULL, this );
+	m_slider_psi->Connect( wxEVT_SCROLL_THUMBTRACK, wxScrollEventHandler( MyFrame1::m_slider_psi_scroll ), NULL, this );
+	m_slider_psi->Connect( wxEVT_SCROLL_THUMBRELEASE, wxScrollEventHandler( MyFrame1::m_slider_psi_scroll ), NULL, this );
+	m_slider_psi->Connect( wxEVT_SCROLL_CHANGED, wxScrollEventHandler( MyFrame1::m_slider_psi_scroll ), NULL, this );
+	m_slider_teta->Connect( wxEVT_SCROLL_TOP, wxScrollEventHandler( MyFrame1::m_slider_teta_scroll ), NULL, this );
+	m_slider_teta->Connect( wxEVT_SCROLL_BOTTOM, wxScrollEventHandler( MyFrame1::m_slider_teta_scroll ), NULL, this );
+	m_slider_teta->Connect( wxEVT_SCROLL_LINEUP, wxScrollEventHandler( MyFrame1::m_slider_teta_scroll ), NULL, this );
+	m_slider_teta->Connect( wxEVT_SCROLL_LINEDOWN, wxScrollEventHandler( MyFrame1::m_slider_teta_scroll ), NULL, this );
+	m_slider_teta->Connect( wxEVT_SCROLL_PAGEUP, wxScrollEventHandler( MyFrame1::m_slider_teta_scroll ), NULL, this );
+	m_slider_teta->Connect( wxEVT_SCROLL_PAGEDOWN, wxScrollEventHandler( MyFrame1::m_slider_teta_scroll ), NULL, this );
+	m_slider_teta->Connect( wxEVT_SCROLL_THUMBTRACK, wxScrollEventHandler( MyFrame1::m_slider_teta_scroll ), NULL, this );
+	m_slider_teta->Connect( wxEVT_SCROLL_THUMBRELEASE, wxScrollEventHandler( MyFrame1::m_slider_teta_scroll ), NULL, this );
+	m_slider_teta->Connect( wxEVT_SCROLL_CHANGED, wxScrollEventHandler( MyFrame1::m_slider_teta_scroll ), NULL, this );
+	m_slider_n->Connect( wxEVT_SCROLL_TOP, wxScrollEventHandler( MyFrame1::m_slider_n_scroll ), NULL, this );
+	m_slider_n->Connect( wxEVT_SCROLL_BOTTOM, wxScrollEventHandler( MyFrame1::m_slider_n_scroll ), NULL, this );
+	m_slider_n->Connect( wxEVT_SCROLL_LINEUP, wxScrollEventHandler( MyFrame1::m_slider_n_scroll ), NULL, this );
+	m_slider_n->Connect( wxEVT_SCROLL_LINEDOWN, wxScrollEventHandler( MyFrame1::m_slider_n_scroll ), NULL, this );
+	m_slider_n->Connect( wxEVT_SCROLL_PAGEUP, wxScrollEventHandler( MyFrame1::m_slider_n_scroll ), NULL, this );
+	m_slider_n->Connect( wxEVT_SCROLL_PAGEDOWN, wxScrollEventHandler( MyFrame1::m_slider_n_scroll ), NULL, this );
+	m_slider_n->Connect( wxEVT_SCROLL_THUMBTRACK, wxScrollEventHandler( MyFrame1::m_slider_n_scroll ), NULL, this );
+	m_slider_n->Connect( wxEVT_SCROLL_THUMBRELEASE, wxScrollEventHandler( MyFrame1::m_slider_n_scroll ), NULL, this );
+	m_slider_n->Connect( wxEVT_SCROLL_CHANGED, wxScrollEventHandler( MyFrame1::m_slider_n_scroll ), NULL, this );
+	m_slider_m->Connect( wxEVT_SCROLL_TOP, wxScrollEventHandler( MyFrame1::m_slider_m_scroll ), NULL, this );
+	m_slider_m->Connect( wxEVT_SCROLL_BOTTOM, wxScrollEventHandler( MyFrame1::m_slider_m_scroll ), NULL, this );
+	m_slider_m->Connect( wxEVT_SCROLL_LINEUP, wxScrollEventHandler( MyFrame1::m_slider_m_scroll ), NULL, this );
+	m_slider_m->Connect( wxEVT_SCROLL_LINEDOWN, wxScrollEventHandler( MyFrame1::m_slider_m_scroll ), NULL, this );
+	m_slider_m->Connect( wxEVT_SCROLL_PAGEUP, wxScrollEventHandler( MyFrame1::m_slider_m_scroll ), NULL, this );
+	m_slider_m->Connect( wxEVT_SCROLL_PAGEDOWN, wxScrollEventHandler( MyFrame1::m_slider_m_scroll ), NULL, this );
+	m_slider_m->Connect( wxEVT_SCROLL_THUMBTRACK, wxScrollEventHandler( MyFrame1::m_slider_m_scroll ), NULL, this );
+	m_slider_m->Connect( wxEVT_SCROLL_THUMBRELEASE, wxScrollEventHandler( MyFrame1::m_slider_m_scroll ), NULL, this );
+	m_slider_m->Connect( wxEVT_SCROLL_CHANGED, wxScrollEventHandler( MyFrame1::m_slider_m_scroll ), NULL, this );
+	m_slider_k->Connect( wxEVT_SCROLL_TOP, wxScrollEventHandler( MyFrame1::m_slider_k_scroll ), NULL, this );
+	m_slider_k->Connect( wxEVT_SCROLL_BOTTOM, wxScrollEventHandler( MyFrame1::m_slider_k_scroll ), NULL, this );
+	m_slider_k->Connect( wxEVT_SCROLL_LINEUP, wxScrollEventHandler( MyFrame1::m_slider_k_scroll ), NULL, this );
+	m_slider_k->Connect( wxEVT_SCROLL_LINEDOWN, wxScrollEventHandler( MyFrame1::m_slider_k_scroll ), NULL, this );
+	m_slider_k->Connect( wxEVT_SCROLL_PAGEUP, wxScrollEventHandler( MyFrame1::m_slider_k_scroll ), NULL, this );
+	m_slider_k->Connect( wxEVT_SCROLL_PAGEDOWN, wxScrollEventHandler( MyFrame1::m_slider_k_scroll ), NULL, this );
+	m_slider_k->Connect( wxEVT_SCROLL_THUMBTRACK, wxScrollEventHandler( MyFrame1::m_slider_k_scroll ), NULL, this );
+	m_slider_k->Connect( wxEVT_SCROLL_THUMBRELEASE, wxScrollEventHandler( MyFrame1::m_slider_k_scroll ), NULL, this );
+	m_slider_k->Connect( wxEVT_SCROLL_CHANGED, wxScrollEventHandler( MyFrame1::m_slider_k_scroll ), NULL, this );
+	m_slider_x->Connect( wxEVT_SCROLL_TOP, wxScrollEventHandler( MyFrame1::m_slider_x_scroll ), NULL, this );
+	m_slider_x->Connect( wxEVT_SCROLL_BOTTOM, wxScrollEventHandler( MyFrame1::m_slider_x_scroll ), NULL, this );
+	m_slider_x->Connect( wxEVT_SCROLL_LINEUP, wxScrollEventHandler( MyFrame1::m_slider_x_scroll ), NULL, this );
+	m_slider_x->Connect( wxEVT_SCROLL_LINEDOWN, wxScrollEventHandler( MyFrame1::m_slider_x_scroll ), NULL, this );
+	m_slider_x->Connect( wxEVT_SCROLL_PAGEUP, wxScrollEventHandler( MyFrame1::m_slider_x_scroll ), NULL, this );
+	m_slider_x->Connect( wxEVT_SCROLL_PAGEDOWN, wxScrollEventHandler( MyFrame1::m_slider_x_scroll ), NULL, this );
+	m_slider_x->Connect( wxEVT_SCROLL_THUMBTRACK, wxScrollEventHandler( MyFrame1::m_slider_x_scroll ), NULL, this );
+	m_slider_x->Connect( wxEVT_SCROLL_THUMBRELEASE, wxScrollEventHandler( MyFrame1::m_slider_x_scroll ), NULL, this );
+	m_slider_x->Connect( wxEVT_SCROLL_CHANGED, wxScrollEventHandler( MyFrame1::m_slider_x_scroll ), NULL, this );
+	m_slider_y->Connect( wxEVT_SCROLL_TOP, wxScrollEventHandler( MyFrame1::m_slider_y_scroll ), NULL, this );
+	m_slider_y->Connect( wxEVT_SCROLL_BOTTOM, wxScrollEventHandler( MyFrame1::m_slider_y_scroll ), NULL, this );
+	m_slider_y->Connect( wxEVT_SCROLL_LINEUP, wxScrollEventHandler( MyFrame1::m_slider_y_scroll ), NULL, this );
+	m_slider_y->Connect( wxEVT_SCROLL_LINEDOWN, wxScrollEventHandler( MyFrame1::m_slider_y_scroll ), NULL, this );
+	m_slider_y->Connect( wxEVT_SCROLL_PAGEUP, wxScrollEventHandler( MyFrame1::m_slider_y_scroll ), NULL, this );
+	m_slider_y->Connect( wxEVT_SCROLL_PAGEDOWN, wxScrollEventHandler( MyFrame1::m_slider_y_scroll ), NULL, this );
+	m_slider_y->Connect( wxEVT_SCROLL_THUMBTRACK, wxScrollEventHandler( MyFrame1::m_slider_y_scroll ), NULL, this );
+	m_slider_y->Connect( wxEVT_SCROLL_THUMBRELEASE, wxScrollEventHandler( MyFrame1::m_slider_y_scroll ), NULL, this );
+	m_slider_y->Connect( wxEVT_SCROLL_CHANGED, wxScrollEventHandler( MyFrame1::m_slider_y_scroll ), NULL, this );
+	m_slider_z->Connect( wxEVT_SCROLL_TOP, wxScrollEventHandler( MyFrame1::m_slider_z_scroll ), NULL, this );
+	m_slider_z->Connect( wxEVT_SCROLL_BOTTOM, wxScrollEventHandler( MyFrame1::m_slider_z_scroll ), NULL, this );
+	m_slider_z->Connect( wxEVT_SCROLL_LINEUP, wxScrollEventHandler( MyFrame1::m_slider_z_scroll ), NULL, this );
+	m_slider_z->Connect( wxEVT_SCROLL_LINEDOWN, wxScrollEventHandler( MyFrame1::m_slider_z_scroll ), NULL, this );
+	m_slider_z->Connect( wxEVT_SCROLL_PAGEUP, wxScrollEventHandler( MyFrame1::m_slider_z_scroll ), NULL, this );
+	m_slider_z->Connect( wxEVT_SCROLL_PAGEDOWN, wxScrollEventHandler( MyFrame1::m_slider_z_scroll ), NULL, this );
+	m_slider_z->Connect( wxEVT_SCROLL_THUMBTRACK, wxScrollEventHandler( MyFrame1::m_slider_z_scroll ), NULL, this );
+	m_slider_z->Connect( wxEVT_SCROLL_THUMBRELEASE, wxScrollEventHandler( MyFrame1::m_slider_z_scroll ), NULL, this );
+	m_slider_z->Connect( wxEVT_SCROLL_CHANGED, wxScrollEventHandler( MyFrame1::m_slider_z_scroll ), NULL, this );
 	m_checkBoxDot->Connect( wxEVT_COMMAND_CHECKBOX_CLICKED, wxCommandEventHandler( MyFrame1::m_checkBoxDot_check ), NULL, this );
 	m_checkBoxLine->Connect( wxEVT_COMMAND_CHECKBOX_CLICKED, wxCommandEventHandler( MyFrame1::m_checkBoxLine_check ), NULL, this );
 	m_checkBoxAnimuj->Connect( wxEVT_COMMAND_CHECKBOX_CLICKED, wxCommandEventHandler( MyFrame1::m_checkBoxAnimuj_clicked ), NULL, this );
@@ -214,6 +386,114 @@ MyFrame1::~MyFrame1()
 	// Disconnect Events
 	m_button_kart->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( MyFrame1::m_button_kart_click ), NULL, this );
 	m_button_biegun->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( MyFrame1::m_button_biegun_click ), NULL, this );
+	m_slider_a->Disconnect( wxEVT_SCROLL_TOP, wxScrollEventHandler( MyFrame1::m_slider_a_scroll ), NULL, this );
+	m_slider_a->Disconnect( wxEVT_SCROLL_BOTTOM, wxScrollEventHandler( MyFrame1::m_slider_a_scroll ), NULL, this );
+	m_slider_a->Disconnect( wxEVT_SCROLL_LINEUP, wxScrollEventHandler( MyFrame1::m_slider_a_scroll ), NULL, this );
+	m_slider_a->Disconnect( wxEVT_SCROLL_LINEDOWN, wxScrollEventHandler( MyFrame1::m_slider_a_scroll ), NULL, this );
+	m_slider_a->Disconnect( wxEVT_SCROLL_PAGEUP, wxScrollEventHandler( MyFrame1::m_slider_a_scroll ), NULL, this );
+	m_slider_a->Disconnect( wxEVT_SCROLL_PAGEDOWN, wxScrollEventHandler( MyFrame1::m_slider_a_scroll ), NULL, this );
+	m_slider_a->Disconnect( wxEVT_SCROLL_THUMBTRACK, wxScrollEventHandler( MyFrame1::m_slider_a_scroll ), NULL, this );
+	m_slider_a->Disconnect( wxEVT_SCROLL_THUMBRELEASE, wxScrollEventHandler( MyFrame1::m_slider_a_scroll ), NULL, this );
+	m_slider_a->Disconnect( wxEVT_SCROLL_CHANGED, wxScrollEventHandler( MyFrame1::m_slider_a_scroll ), NULL, this );
+	m_slider_b->Disconnect( wxEVT_SCROLL_TOP, wxScrollEventHandler( MyFrame1::m_slider_b_scroll ), NULL, this );
+	m_slider_b->Disconnect( wxEVT_SCROLL_BOTTOM, wxScrollEventHandler( MyFrame1::m_slider_b_scroll ), NULL, this );
+	m_slider_b->Disconnect( wxEVT_SCROLL_LINEUP, wxScrollEventHandler( MyFrame1::m_slider_b_scroll ), NULL, this );
+	m_slider_b->Disconnect( wxEVT_SCROLL_LINEDOWN, wxScrollEventHandler( MyFrame1::m_slider_b_scroll ), NULL, this );
+	m_slider_b->Disconnect( wxEVT_SCROLL_PAGEUP, wxScrollEventHandler( MyFrame1::m_slider_b_scroll ), NULL, this );
+	m_slider_b->Disconnect( wxEVT_SCROLL_PAGEDOWN, wxScrollEventHandler( MyFrame1::m_slider_b_scroll ), NULL, this );
+	m_slider_b->Disconnect( wxEVT_SCROLL_THUMBTRACK, wxScrollEventHandler( MyFrame1::m_slider_b_scroll ), NULL, this );
+	m_slider_b->Disconnect( wxEVT_SCROLL_THUMBRELEASE, wxScrollEventHandler( MyFrame1::m_slider_b_scroll ), NULL, this );
+	m_slider_b->Disconnect( wxEVT_SCROLL_CHANGED, wxScrollEventHandler( MyFrame1::m_slider_b_scroll ), NULL, this );
+	m_slider_c->Disconnect( wxEVT_SCROLL_TOP, wxScrollEventHandler( MyFrame1::m_slider_c_scroll ), NULL, this );
+	m_slider_c->Disconnect( wxEVT_SCROLL_BOTTOM, wxScrollEventHandler( MyFrame1::m_slider_c_scroll ), NULL, this );
+	m_slider_c->Disconnect( wxEVT_SCROLL_LINEUP, wxScrollEventHandler( MyFrame1::m_slider_c_scroll ), NULL, this );
+	m_slider_c->Disconnect( wxEVT_SCROLL_LINEDOWN, wxScrollEventHandler( MyFrame1::m_slider_c_scroll ), NULL, this );
+	m_slider_c->Disconnect( wxEVT_SCROLL_PAGEUP, wxScrollEventHandler( MyFrame1::m_slider_c_scroll ), NULL, this );
+	m_slider_c->Disconnect( wxEVT_SCROLL_PAGEDOWN, wxScrollEventHandler( MyFrame1::m_slider_c_scroll ), NULL, this );
+	m_slider_c->Disconnect( wxEVT_SCROLL_THUMBTRACK, wxScrollEventHandler( MyFrame1::m_slider_c_scroll ), NULL, this );
+	m_slider_c->Disconnect( wxEVT_SCROLL_THUMBRELEASE, wxScrollEventHandler( MyFrame1::m_slider_c_scroll ), NULL, this );
+	m_slider_c->Disconnect( wxEVT_SCROLL_CHANGED, wxScrollEventHandler( MyFrame1::m_slider_c_scroll ), NULL, this );
+	m_slider_phi->Disconnect( wxEVT_SCROLL_TOP, wxScrollEventHandler( MyFrame1::m_slider_phi_scroll ), NULL, this );
+	m_slider_phi->Disconnect( wxEVT_SCROLL_BOTTOM, wxScrollEventHandler( MyFrame1::m_slider_phi_scroll ), NULL, this );
+	m_slider_phi->Disconnect( wxEVT_SCROLL_LINEUP, wxScrollEventHandler( MyFrame1::m_slider_phi_scroll ), NULL, this );
+	m_slider_phi->Disconnect( wxEVT_SCROLL_LINEDOWN, wxScrollEventHandler( MyFrame1::m_slider_phi_scroll ), NULL, this );
+	m_slider_phi->Disconnect( wxEVT_SCROLL_PAGEUP, wxScrollEventHandler( MyFrame1::m_slider_phi_scroll ), NULL, this );
+	m_slider_phi->Disconnect( wxEVT_SCROLL_PAGEDOWN, wxScrollEventHandler( MyFrame1::m_slider_phi_scroll ), NULL, this );
+	m_slider_phi->Disconnect( wxEVT_SCROLL_THUMBTRACK, wxScrollEventHandler( MyFrame1::m_slider_phi_scroll ), NULL, this );
+	m_slider_phi->Disconnect( wxEVT_SCROLL_THUMBRELEASE, wxScrollEventHandler( MyFrame1::m_slider_phi_scroll ), NULL, this );
+	m_slider_phi->Disconnect( wxEVT_SCROLL_CHANGED, wxScrollEventHandler( MyFrame1::m_slider_phi_scroll ), NULL, this );
+	m_slider_psi->Disconnect( wxEVT_SCROLL_TOP, wxScrollEventHandler( MyFrame1::m_slider_psi_scroll ), NULL, this );
+	m_slider_psi->Disconnect( wxEVT_SCROLL_BOTTOM, wxScrollEventHandler( MyFrame1::m_slider_psi_scroll ), NULL, this );
+	m_slider_psi->Disconnect( wxEVT_SCROLL_LINEUP, wxScrollEventHandler( MyFrame1::m_slider_psi_scroll ), NULL, this );
+	m_slider_psi->Disconnect( wxEVT_SCROLL_LINEDOWN, wxScrollEventHandler( MyFrame1::m_slider_psi_scroll ), NULL, this );
+	m_slider_psi->Disconnect( wxEVT_SCROLL_PAGEUP, wxScrollEventHandler( MyFrame1::m_slider_psi_scroll ), NULL, this );
+	m_slider_psi->Disconnect( wxEVT_SCROLL_PAGEDOWN, wxScrollEventHandler( MyFrame1::m_slider_psi_scroll ), NULL, this );
+	m_slider_psi->Disconnect( wxEVT_SCROLL_THUMBTRACK, wxScrollEventHandler( MyFrame1::m_slider_psi_scroll ), NULL, this );
+	m_slider_psi->Disconnect( wxEVT_SCROLL_THUMBRELEASE, wxScrollEventHandler( MyFrame1::m_slider_psi_scroll ), NULL, this );
+	m_slider_psi->Disconnect( wxEVT_SCROLL_CHANGED, wxScrollEventHandler( MyFrame1::m_slider_psi_scroll ), NULL, this );
+	m_slider_teta->Disconnect( wxEVT_SCROLL_TOP, wxScrollEventHandler( MyFrame1::m_slider_teta_scroll ), NULL, this );
+	m_slider_teta->Disconnect( wxEVT_SCROLL_BOTTOM, wxScrollEventHandler( MyFrame1::m_slider_teta_scroll ), NULL, this );
+	m_slider_teta->Disconnect( wxEVT_SCROLL_LINEUP, wxScrollEventHandler( MyFrame1::m_slider_teta_scroll ), NULL, this );
+	m_slider_teta->Disconnect( wxEVT_SCROLL_LINEDOWN, wxScrollEventHandler( MyFrame1::m_slider_teta_scroll ), NULL, this );
+	m_slider_teta->Disconnect( wxEVT_SCROLL_PAGEUP, wxScrollEventHandler( MyFrame1::m_slider_teta_scroll ), NULL, this );
+	m_slider_teta->Disconnect( wxEVT_SCROLL_PAGEDOWN, wxScrollEventHandler( MyFrame1::m_slider_teta_scroll ), NULL, this );
+	m_slider_teta->Disconnect( wxEVT_SCROLL_THUMBTRACK, wxScrollEventHandler( MyFrame1::m_slider_teta_scroll ), NULL, this );
+	m_slider_teta->Disconnect( wxEVT_SCROLL_THUMBRELEASE, wxScrollEventHandler( MyFrame1::m_slider_teta_scroll ), NULL, this );
+	m_slider_teta->Disconnect( wxEVT_SCROLL_CHANGED, wxScrollEventHandler( MyFrame1::m_slider_teta_scroll ), NULL, this );
+	m_slider_n->Disconnect( wxEVT_SCROLL_TOP, wxScrollEventHandler( MyFrame1::m_slider_n_scroll ), NULL, this );
+	m_slider_n->Disconnect( wxEVT_SCROLL_BOTTOM, wxScrollEventHandler( MyFrame1::m_slider_n_scroll ), NULL, this );
+	m_slider_n->Disconnect( wxEVT_SCROLL_LINEUP, wxScrollEventHandler( MyFrame1::m_slider_n_scroll ), NULL, this );
+	m_slider_n->Disconnect( wxEVT_SCROLL_LINEDOWN, wxScrollEventHandler( MyFrame1::m_slider_n_scroll ), NULL, this );
+	m_slider_n->Disconnect( wxEVT_SCROLL_PAGEUP, wxScrollEventHandler( MyFrame1::m_slider_n_scroll ), NULL, this );
+	m_slider_n->Disconnect( wxEVT_SCROLL_PAGEDOWN, wxScrollEventHandler( MyFrame1::m_slider_n_scroll ), NULL, this );
+	m_slider_n->Disconnect( wxEVT_SCROLL_THUMBTRACK, wxScrollEventHandler( MyFrame1::m_slider_n_scroll ), NULL, this );
+	m_slider_n->Disconnect( wxEVT_SCROLL_THUMBRELEASE, wxScrollEventHandler( MyFrame1::m_slider_n_scroll ), NULL, this );
+	m_slider_n->Disconnect( wxEVT_SCROLL_CHANGED, wxScrollEventHandler( MyFrame1::m_slider_n_scroll ), NULL, this );
+	m_slider_m->Disconnect( wxEVT_SCROLL_TOP, wxScrollEventHandler( MyFrame1::m_slider_m_scroll ), NULL, this );
+	m_slider_m->Disconnect( wxEVT_SCROLL_BOTTOM, wxScrollEventHandler( MyFrame1::m_slider_m_scroll ), NULL, this );
+	m_slider_m->Disconnect( wxEVT_SCROLL_LINEUP, wxScrollEventHandler( MyFrame1::m_slider_m_scroll ), NULL, this );
+	m_slider_m->Disconnect( wxEVT_SCROLL_LINEDOWN, wxScrollEventHandler( MyFrame1::m_slider_m_scroll ), NULL, this );
+	m_slider_m->Disconnect( wxEVT_SCROLL_PAGEUP, wxScrollEventHandler( MyFrame1::m_slider_m_scroll ), NULL, this );
+	m_slider_m->Disconnect( wxEVT_SCROLL_PAGEDOWN, wxScrollEventHandler( MyFrame1::m_slider_m_scroll ), NULL, this );
+	m_slider_m->Disconnect( wxEVT_SCROLL_THUMBTRACK, wxScrollEventHandler( MyFrame1::m_slider_m_scroll ), NULL, this );
+	m_slider_m->Disconnect( wxEVT_SCROLL_THUMBRELEASE, wxScrollEventHandler( MyFrame1::m_slider_m_scroll ), NULL, this );
+	m_slider_m->Disconnect( wxEVT_SCROLL_CHANGED, wxScrollEventHandler( MyFrame1::m_slider_m_scroll ), NULL, this );
+	m_slider_k->Disconnect( wxEVT_SCROLL_TOP, wxScrollEventHandler( MyFrame1::m_slider_k_scroll ), NULL, this );
+	m_slider_k->Disconnect( wxEVT_SCROLL_BOTTOM, wxScrollEventHandler( MyFrame1::m_slider_k_scroll ), NULL, this );
+	m_slider_k->Disconnect( wxEVT_SCROLL_LINEUP, wxScrollEventHandler( MyFrame1::m_slider_k_scroll ), NULL, this );
+	m_slider_k->Disconnect( wxEVT_SCROLL_LINEDOWN, wxScrollEventHandler( MyFrame1::m_slider_k_scroll ), NULL, this );
+	m_slider_k->Disconnect( wxEVT_SCROLL_PAGEUP, wxScrollEventHandler( MyFrame1::m_slider_k_scroll ), NULL, this );
+	m_slider_k->Disconnect( wxEVT_SCROLL_PAGEDOWN, wxScrollEventHandler( MyFrame1::m_slider_k_scroll ), NULL, this );
+	m_slider_k->Disconnect( wxEVT_SCROLL_THUMBTRACK, wxScrollEventHandler( MyFrame1::m_slider_k_scroll ), NULL, this );
+	m_slider_k->Disconnect( wxEVT_SCROLL_THUMBRELEASE, wxScrollEventHandler( MyFrame1::m_slider_k_scroll ), NULL, this );
+	m_slider_k->Disconnect( wxEVT_SCROLL_CHANGED, wxScrollEventHandler( MyFrame1::m_slider_k_scroll ), NULL, this );
+	m_slider_x->Disconnect( wxEVT_SCROLL_TOP, wxScrollEventHandler( MyFrame1::m_slider_x_scroll ), NULL, this );
+	m_slider_x->Disconnect( wxEVT_SCROLL_BOTTOM, wxScrollEventHandler( MyFrame1::m_slider_x_scroll ), NULL, this );
+	m_slider_x->Disconnect( wxEVT_SCROLL_LINEUP, wxScrollEventHandler( MyFrame1::m_slider_x_scroll ), NULL, this );
+	m_slider_x->Disconnect( wxEVT_SCROLL_LINEDOWN, wxScrollEventHandler( MyFrame1::m_slider_x_scroll ), NULL, this );
+	m_slider_x->Disconnect( wxEVT_SCROLL_PAGEUP, wxScrollEventHandler( MyFrame1::m_slider_x_scroll ), NULL, this );
+	m_slider_x->Disconnect( wxEVT_SCROLL_PAGEDOWN, wxScrollEventHandler( MyFrame1::m_slider_x_scroll ), NULL, this );
+	m_slider_x->Disconnect( wxEVT_SCROLL_THUMBTRACK, wxScrollEventHandler( MyFrame1::m_slider_x_scroll ), NULL, this );
+	m_slider_x->Disconnect( wxEVT_SCROLL_THUMBRELEASE, wxScrollEventHandler( MyFrame1::m_slider_x_scroll ), NULL, this );
+	m_slider_x->Disconnect( wxEVT_SCROLL_CHANGED, wxScrollEventHandler( MyFrame1::m_slider_x_scroll ), NULL, this );
+	m_slider_y->Disconnect( wxEVT_SCROLL_TOP, wxScrollEventHandler( MyFrame1::m_slider_y_scroll ), NULL, this );
+	m_slider_y->Disconnect( wxEVT_SCROLL_BOTTOM, wxScrollEventHandler( MyFrame1::m_slider_y_scroll ), NULL, this );
+	m_slider_y->Disconnect( wxEVT_SCROLL_LINEUP, wxScrollEventHandler( MyFrame1::m_slider_y_scroll ), NULL, this );
+	m_slider_y->Disconnect( wxEVT_SCROLL_LINEDOWN, wxScrollEventHandler( MyFrame1::m_slider_y_scroll ), NULL, this );
+	m_slider_y->Disconnect( wxEVT_SCROLL_PAGEUP, wxScrollEventHandler( MyFrame1::m_slider_y_scroll ), NULL, this );
+	m_slider_y->Disconnect( wxEVT_SCROLL_PAGEDOWN, wxScrollEventHandler( MyFrame1::m_slider_y_scroll ), NULL, this );
+	m_slider_y->Disconnect( wxEVT_SCROLL_THUMBTRACK, wxScrollEventHandler( MyFrame1::m_slider_y_scroll ), NULL, this );
+	m_slider_y->Disconnect( wxEVT_SCROLL_THUMBRELEASE, wxScrollEventHandler( MyFrame1::m_slider_y_scroll ), NULL, this );
+	m_slider_y->Disconnect( wxEVT_SCROLL_CHANGED, wxScrollEventHandler( MyFrame1::m_slider_y_scroll ), NULL, this );
+	m_slider_z->Disconnect( wxEVT_SCROLL_TOP, wxScrollEventHandler( MyFrame1::m_slider_z_scroll ), NULL, this );
+	m_slider_z->Disconnect( wxEVT_SCROLL_BOTTOM, wxScrollEventHandler( MyFrame1::m_slider_z_scroll ), NULL, this );
+	m_slider_z->Disconnect( wxEVT_SCROLL_LINEUP, wxScrollEventHandler( MyFrame1::m_slider_z_scroll ), NULL, this );
+	m_slider_z->Disconnect( wxEVT_SCROLL_LINEDOWN, wxScrollEventHandler( MyFrame1::m_slider_z_scroll ), NULL, this );
+	m_slider_z->Disconnect( wxEVT_SCROLL_PAGEUP, wxScrollEventHandler( MyFrame1::m_slider_z_scroll ), NULL, this );
+	m_slider_z->Disconnect( wxEVT_SCROLL_PAGEDOWN, wxScrollEventHandler( MyFrame1::m_slider_z_scroll ), NULL, this );
+	m_slider_z->Disconnect( wxEVT_SCROLL_THUMBTRACK, wxScrollEventHandler( MyFrame1::m_slider_z_scroll ), NULL, this );
+	m_slider_z->Disconnect( wxEVT_SCROLL_THUMBRELEASE, wxScrollEventHandler( MyFrame1::m_slider_z_scroll ), NULL, this );
+	m_slider_z->Disconnect( wxEVT_SCROLL_CHANGED, wxScrollEventHandler( MyFrame1::m_slider_z_scroll ), NULL, this );
 	m_checkBoxDot->Disconnect( wxEVT_COMMAND_CHECKBOX_CLICKED, wxCommandEventHandler( MyFrame1::m_checkBoxDot_check ), NULL, this );
 	m_checkBoxLine->Disconnect( wxEVT_COMMAND_CHECKBOX_CLICKED, wxCommandEventHandler( MyFrame1::m_checkBoxLine_check ), NULL, this );
 	m_checkBoxAnimuj->Disconnect( wxEVT_COMMAND_CHECKBOX_CLICKED, wxCommandEventHandler( MyFrame1::m_checkBoxAnimuj_clicked ), NULL, this );
