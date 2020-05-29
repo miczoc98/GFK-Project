@@ -3,7 +3,7 @@
 
 GUIMyFrame1::GUIMyFrame1( wxWindow* parent )
 :
-MyFrame1( parent ), generator(CurveGenerator(40, 1))
+MyFrame1( parent ), generator(CurveGenerator(100, 0.1))
 {
 	data = generator.get_next();
 }
@@ -118,7 +118,8 @@ void GUIMyFrame1::m_checkBoxLine_check( wxCommandEvent& event )
 
 void GUIMyFrame1::m_checkBoxAnimuj_clicked( wxCommandEvent& event )
 {
-	
+	generator.set_animate(m_checkBoxAnimuj->IsChecked());
+	Repaint();
 }
 
 Matrix4 RotateX(float x) {

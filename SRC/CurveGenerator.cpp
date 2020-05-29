@@ -9,22 +9,40 @@ CurveGenerator::CurveGenerator(int max_len, double seg_len)
 
 std::deque<Segment> CurveGenerator::get_next()
 {
-	Segment seg = generate_segment();
-	
-	if (m_len > m_max_len)
+	if (m_animate)
 	{
-		m_queue.pop_front();
-		m_queue[0].color = m_queue[0].color - 1;
+		Segment seg = generate_segment();
+
+		if (m_len > m_max_len)
+		{
+			m_queue.pop_front();
+			m_queue[0].color = m_queue[0].color - 1;
+		}
+		else
+			m_len++;
+		m_queue.push_back(seg);
 	}
 	else
-		m_len++;
-	m_queue.push_back(seg);
+	{
+		while(m_len < m_max_len)
+		{
+			m_len++;
+			Segment seg = generate_segment();
+			m_queue.push_back(seg);
+		}
+	}
 	return m_queue;
 }
 
 void CurveGenerator::set_cartesian(bool b)
 {
 	m_is_cartesian = b;
+	reset();
+}
+
+void CurveGenerator::set_animate(bool b)
+{
+	m_animate = b;
 	reset();
 }
 
@@ -97,7 +115,7 @@ Segment CurveGenerator::generate_segment()
 	while (current_segment_length < m_segment_len)
 	{
 		pos = m_curve.get_pos(m_t += step, m_is_cartesian);
-		current_segment_length += sqrt(pow(start.x - pos.x, 2) + pow(start.y - pos.y, 2) + pow(start.z - pos.z, 2));
+		current_segment_length = sqrt(pow(start.x - pos.x, 2) + pow(start.y - pos.y, 2) + pow(start.z - pos.z, 2));
 	}
 	return Segment(start, pos, Color(0, 0, 0));
 }
