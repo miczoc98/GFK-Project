@@ -1,5 +1,5 @@
 #include "GUIMyFrame1.h"
-#include "vecmat.h"
+#include "Matrix.h"
 
 GUIMyFrame1::GUIMyFrame1( wxWindow* parent )
 :
