@@ -109,11 +109,13 @@ void GUIMyFrame1::m_slider_z_scroll(wxScrollEvent& event)
 void GUIMyFrame1::m_checkBoxDot_check( wxCommandEvent& event )
 {
 	m_checkBoxLine->SetValue(false);
+	Repaint();
 }
 
 void GUIMyFrame1::m_checkBoxLine_check( wxCommandEvent& event )
 {
 	m_checkBoxDot->SetValue(false);
+	Repaint();
 }
 
 void GUIMyFrame1::m_checkBoxAnimuj_clicked( wxCommandEvent& event )
@@ -252,8 +254,15 @@ void GUIMyFrame1::Repaint() {
 
 		}
 
-		bDC.DrawLine(v1.GetX(), v1.GetY(), v2.GetX(), v2.GetY());
+		if (m_checkBoxLine->IsChecked()) bDC.DrawLine(v1.GetX(), v1.GetY(), v2.GetX(), v2.GetY());
+		else if (m_checkBoxDot->IsChecked()) {
+
+			bDC.DrawPoint(v1.GetX(), v1.GetY());
+			bDC.DrawPoint(v2.GetX(), v2.GetY());
+
+		}
 
 	}
+
 
 }
