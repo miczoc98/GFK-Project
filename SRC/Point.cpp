@@ -19,3 +19,12 @@ Point Point::as_spherical()
 
 	return Point(x, y, z);
 }
+
+Color& Color::operator-(int i)
+{
+	R -= i;
+	G -= i;
+	B -= i;
+
+	return *this;
+}

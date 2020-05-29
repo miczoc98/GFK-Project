@@ -3,94 +3,92 @@
 
 GUIMyFrame1::GUIMyFrame1( wxWindow* parent )
 :
-MyFrame1( parent )
+MyFrame1( parent ), generator(CurveGenerator(40, 1))
 {
-	curve = LissajousCurve();
-	data = curve.get_curve(len, step, m_uklad_kart);
+	data = generator.get_next();
 }
-
-Vector4 rotation;
-
 
 void GUIMyFrame1::m_button_kart_click( wxCommandEvent& event )
 {
-	m_uklad_kart = true;
-	data = curve.get_curve(len, step, true);
+	generator.set_cartesian(true);
+	data = generator.get_next();
 	Repaint();
 }
 
 void GUIMyFrame1::m_button_biegun_click( wxCommandEvent& event )
 {
-	m_uklad_kart = false;
-	data = curve.get_curve(len, step, false);
+	generator.set_cartesian(false);
+	data = generator.get_next();
 	Repaint();
 }
 
 void GUIMyFrame1::m_slider_a_scroll(wxScrollEvent& event)
 {
-	curve.set_A((float)m_slider_a->GetValue()/100);
-	data = curve.get_curve(len, step, m_uklad_kart);
+	generator.set_A((float)m_slider_a->GetValue()/100);
+	data = generator.get_next();
 	Repaint();
 }
 
 void GUIMyFrame1::m_slider_b_scroll(wxScrollEvent& event)
 {
-	curve.set_B((float)m_slider_b->GetValue() / 100);
-	data = curve.get_curve(len, step, m_uklad_kart);
+	generator.set_B((float)m_slider_b->GetValue() / 100);
+	data = generator.get_next();
 	Repaint();
 }
 
 void GUIMyFrame1::m_slider_c_scroll(wxScrollEvent& event)
 {
-	curve.set_C((float)m_slider_c->GetValue() / 100);
-	data = curve.get_curve(len, step, m_uklad_kart);
+	generator.set_C((float)m_slider_c->GetValue() / 100);
+	data = generator.get_next();
 	Repaint();
 }
 
 void GUIMyFrame1::m_slider_phi_scroll(wxScrollEvent& event)
 {
-	curve.set_alpha((float)m_slider_phi->GetValue() / 100);
-	data = curve.get_curve(len, step, m_uklad_kart);
+	generator.set_alpha((float)m_slider_phi->GetValue() / 100);
+	data = generator.get_next();
 	Repaint();
 }
 
 void GUIMyFrame1::m_slider_psi_scroll(wxScrollEvent& event)
 {
-	curve.set_beta((float)m_slider_psi->GetValue() / 100);
-	data = curve.get_curve(len, step, m_uklad_kart);
+	generator.set_beta((float)m_slider_psi->GetValue() / 100);
+	data = generator.get_next();
 	Repaint();
 }
 void GUIMyFrame1::m_slider_teta_scroll(wxScrollEvent& event)
 {
-	curve.set_gamma((float)m_slider_teta->GetValue() / 100);
-	data = curve.get_curve(len, step, m_uklad_kart);
+	generator.set_gamma((float)m_slider_teta->GetValue() / 100);
+	data = generator.get_next();
 	Repaint();
 }
 
 void GUIMyFrame1::m_slider_n_scroll(wxScrollEvent& event)
 {
-	curve.set_f((float)m_slider_n->GetValue() / 100);
-	data = curve.get_curve(len, step, m_uklad_kart);
+	generator.set_f((float)m_slider_n->GetValue() / 100);
+	data = generator.get_next();
 	Repaint();
 }
 
 void GUIMyFrame1::m_slider_m_scroll(wxScrollEvent& event)
 {
-	curve.set_g((float)m_slider_m->GetValue() / 100);
-	data = curve.get_curve(len, step, m_uklad_kart);
+	generator.set_g((float)m_slider_m->GetValue() / 100);
+	data = generator.get_next();
 	Repaint();
 }
 
 void GUIMyFrame1::m_slider_k_scroll(wxScrollEvent& event)
 {
-	curve.set_h((float)m_slider_k->GetValue() / 100);
-	data = curve.get_curve(len, step, m_uklad_kart);
+	generator.set_h((float)m_slider_k->GetValue() / 100);
+	data = generator.get_next();
 	Repaint();
 }
 
 void GUIMyFrame1::m_slider_x_scroll(wxScrollEvent& event)
 {
 	rotation.data[0] = (m_slider_x->GetValue());
+	//TO DO: remove after implementing animation
+	data = generator.get_next();
 	Repaint();
 }
 

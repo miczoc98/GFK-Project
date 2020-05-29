@@ -9,8 +9,7 @@ class LissajousCurve
 public:
 	LissajousCurve();
 	
-	Point get_pos(double t);
-	std::vector<Segment> get_curve(double len, double step, bool asCartesian = true);
+	Point get_pos(double t, bool as_cartesian);
 
 	void set_A(double A) { _A = A; };
 	void set_B(double B) { _B = B; };
