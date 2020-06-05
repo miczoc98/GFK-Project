@@ -111,6 +111,7 @@ void CurveGenerator::reset()
 	m_t = 0;
 	m_queue.clear();
 	m_current_segment_count = 0;
+	color = Color(255, 0, 0);
 }
 
 Segment CurveGenerator::generate_segment()
@@ -125,5 +126,5 @@ Segment CurveGenerator::generate_segment()
 		pos = m_curve.get_pos(m_t += m_segment_generation_step, m_is_cartesian);
 		current_segment_length = sqrt(pow(start.x - pos.x, 2) + pow(start.y - pos.y, 2) + pow(start.z - pos.z, 2));
 	}
-	return Segment(start, pos, Color(0, 0, 0));
+	return Segment(start, pos, color.next());
 }

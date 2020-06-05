@@ -50,7 +50,7 @@ class GUIMyFrame1 : public MyFrame1
 	private:
 
 		float m_curve_segment_count = 1000;
-		float m_curve_segment_length = 0.01;
+		float m_curve_segment_length = 0.05;
 		bool m_cartesian = true;
 
 		CurveGenerator m_generator;

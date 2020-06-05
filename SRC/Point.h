@@ -17,11 +17,25 @@ struct Point
 
 struct Color
 {
+	enum cycle
+	{
+		Ru,
+		Gu,
+		Rd,
+		Bu,
+		Gd,
+		Bd,
+	};
+
 	int R;
 	int G;
 	int B;
+	
+	int m_step = 1;
+	cycle current_cycle = Ru;
 	Color(int _R, int _G, int _B) : R(_R), G(_G), B(_B) {}
 	Color& operator+=(int i);
+	Color next();
 };
 
 struct Segment

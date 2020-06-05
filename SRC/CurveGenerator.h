@@ -34,6 +34,8 @@ private:
 	
 	bool m_is_cartesian = true;
 	bool m_animate = false;
+	
+	Color color = Color(255, 0, 0);
 	LissajousCurve m_curve;
 	std::deque<Segment> m_queue;
 

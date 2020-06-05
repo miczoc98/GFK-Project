@@ -173,7 +173,7 @@ void GUIMyFrame1::Repaint()
 	
 	for (unsigned int i = 0; i < m_data.size(); i++) {
 	
-		bDC.SetPen(wxPen(wxColour(m_data[i].color.R, m_data[i].color.G, m_data[i].color.B)));
+		bDC.SetPen(wxPen(wxColour(m_data[i].color.R, m_data[i].color.G, m_data[i].color.B), 2));
 
 		Vector4 v1;
 		Vector4 v2;
@@ -218,9 +218,8 @@ void GUIMyFrame1::Repaint()
 		if (m_checkBoxLine->IsChecked()) bDC.DrawLine(v1.GetX(), v1.GetY(), v2.GetX(), v2.GetY());
 		else if (m_checkBoxDot->IsChecked()) {
 
-			bDC.DrawCircle(v1.GetX(), v1.GetY(), 2);
-			bDC.DrawCircle(v2.GetX(), v2.GetY(), 2);
-
+			bDC.DrawCircle(v1.GetX(), v1.GetY(), 1);
+			bDC.DrawCircle(v2.GetX(), v2.GetY(), 1);
 		}
 	}
 

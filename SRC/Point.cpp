@@ -30,6 +30,60 @@ Color& Color::operator+=(int i)
 	G = G < 256 ? G : 255;
 	B = B < 256 ? B : 255;
 
+	return *this;
+}
 
+Color Color::next()
+{
+	switch (current_cycle)
+	{
+	case Gu:
+		G += m_step;
+		if (G > 255)
+		{
+			G = 255;
+			current_cycle = Rd;
+		}
+		break;
+	case Rd:
+		R -= m_step;
+		if (R < 0)
+		{
+			R = 0;
+			current_cycle = Bu;
+		}
+		break;
+	case Bu:
+		B += m_step;
+		if (B > 255)
+		{
+			B = 255;
+			current_cycle = Gd;
+		}
+		break;
+	case Gd:
+		G -= m_step;
+		if (G < 0)
+		{
+			G = 0;
+			current_cycle = Ru;
+		}
+		break;
+	case Ru:
+		R += m_step;
+		if (R > 255)
+		{
+			R = 255;
+			current_cycle = Bd;
+		}
+		break;
+	case Bd:
+		B -= m_step;
+		if (B < 0)
+		{
+			B = 0;
+			current_cycle = Gu;
+		}
+	}
 	return *this;
 }
