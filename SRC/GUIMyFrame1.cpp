@@ -1,205 +1,165 @@
 #include "GUIMyFrame1.h"
-#include "Matrix.h"
 
-GUIMyFrame1::GUIMyFrame1( wxWindow* parent )
-:
-MyFrame1( parent ), generator(CurveGenerator(100, 0.1))
-{
-	data = generator.get_next();
-}
 
-void GUIMyFrame1::m_button_kart_click( wxCommandEvent& event )
+GUIMyFrame1::GUIMyFrame1(wxWindow* parent)
+	:
+	MyFrame1(parent)
 {
-	generator.set_cartesian(true);
-	data = generator.get_next();
+	m_generator = CurveGenerator(m_curve_segment_count, m_curve_segment_length);
+
+	m_generator.set_A((float)m_slider_a->GetValue()/100);
+	m_generator.set_B((float)m_slider_b->GetValue()/100);
+	m_generator.set_C((float)m_slider_c->GetValue()/100);
+
+	m_generator.set_phi((float)m_slider_phi->GetValue() * (M_PI /180));
+	m_generator.set_psi((float)m_slider_psi->GetValue() * (M_PI / 180));
+	m_generator.set_theta((float)m_slider_teta->GetValue() * (M_PI / 180));
+
+	m_generator.set_m((float)m_slider_m->GetValue() * (M_PI / 180));
+	m_generator.set_n((float)m_slider_n->GetValue() * (M_PI / 180));
+	m_generator.set_k((float)m_slider_k->GetValue() * (M_PI / 180));
+
+
+	m_data = m_generator.get_next();
 	Repaint();
 }
 
-void GUIMyFrame1::m_button_biegun_click( wxCommandEvent& event )
+void GUIMyFrame1::m_button_kart_click(wxCommandEvent& event)
 {
-	generator.set_cartesian(false);
-	data = generator.get_next();
+	m_generator.set_cartesian(true);
+	m_data = m_generator.get_next();
+	Repaint();
+}
+
+void GUIMyFrame1::m_button_biegun_click(wxCommandEvent& event)
+{
+	m_generator.set_cartesian(false);
+	m_data = m_generator.get_next();
 	Repaint();
 }
 
 void GUIMyFrame1::m_slider_a_scroll(wxScrollEvent& event)
 {
-	generator.set_A((float)m_slider_a->GetValue()/100);
-	data = generator.get_next();
+	m_staticText_a->SetLabel(wxString::Format(wxT("%.2f"), (float)m_slider_a->GetValue()/100));
+	m_generator.set_A((float)m_slider_a->GetValue()/100);
+	m_data = m_generator.get_next();
 	Repaint();
 }
 
 void GUIMyFrame1::m_slider_b_scroll(wxScrollEvent& event)
 {
-	generator.set_B((float)m_slider_b->GetValue() / 100);
-	data = generator.get_next();
+	m_staticText_b->SetLabel(wxString::Format(wxT("%.2f"), (float)m_slider_b->GetValue() / 100));
+	m_generator.set_B((float)m_slider_b->GetValue()/100);
+	m_data = m_generator.get_next();
 	Repaint();
 }
 
 void GUIMyFrame1::m_slider_c_scroll(wxScrollEvent& event)
 {
-	generator.set_C((float)m_slider_c->GetValue() / 100);
-	data = generator.get_next();
+	m_staticText_c->SetLabel(wxString::Format(wxT("%.2f"), (float)m_slider_c->GetValue() / 100));
+	m_generator.set_C((float)m_slider_c->GetValue()/100);
+	m_data = m_generator.get_next();
 	Repaint();
 }
 
 void GUIMyFrame1::m_slider_phi_scroll(wxScrollEvent& event)
 {
-	generator.set_alpha((float)m_slider_phi->GetValue() / 100);
-	data = generator.get_next();
+	m_staticText_phi->SetLabel(wxString::Format(wxT("%i"), m_slider_phi->GetValue()));
+	m_generator.set_phi((float)m_slider_phi->GetValue() * (M_PI/180));
+	m_data = m_generator.get_next();
 	Repaint();
 }
 
 void GUIMyFrame1::m_slider_psi_scroll(wxScrollEvent& event)
 {
-	generator.set_beta((float)m_slider_psi->GetValue() / 100);
-	data = generator.get_next();
+	m_staticText_psi->SetLabel(wxString::Format(wxT("%i"), m_slider_psi->GetValue()));
+	m_generator.set_psi((float)m_slider_psi->GetValue() * (M_PI / 180));
+	m_data = m_generator.get_next();
 	Repaint();
 }
 void GUIMyFrame1::m_slider_teta_scroll(wxScrollEvent& event)
 {
-	generator.set_gamma((float)m_slider_teta->GetValue() / 100);
-	data = generator.get_next();
+	m_staticText_teta->SetLabel(wxString::Format(wxT("%i"), m_slider_teta->GetValue()));
+	m_generator.set_theta((float)m_slider_teta->GetValue() * (M_PI / 180));
+	m_data = m_generator.get_next();
 	Repaint();
 }
 
 void GUIMyFrame1::m_slider_n_scroll(wxScrollEvent& event)
 {
-	generator.set_f((float)m_slider_n->GetValue() / 100);
-	data = generator.get_next();
+	m_staticText_n->SetLabel(wxString::Format(wxT("%i"), m_slider_n->GetValue()));
+	m_generator.set_n((float)m_slider_n->GetValue()/10);
+	m_data = m_generator.get_next();
 	Repaint();
 }
 
 void GUIMyFrame1::m_slider_m_scroll(wxScrollEvent& event)
 {
-	generator.set_g((float)m_slider_m->GetValue() / 100);
-	data = generator.get_next();
+	m_staticText_m->SetLabel(wxString::Format(wxT("%i"), m_slider_m->GetValue()));
+	m_generator.set_m((float)m_slider_m->GetValue()/10);
+	m_data = m_generator.get_next();
 	Repaint();
 }
 
 void GUIMyFrame1::m_slider_k_scroll(wxScrollEvent& event)
 {
-	generator.set_h((float)m_slider_k->GetValue() / 100);
-	data = generator.get_next();
+	m_staticText_k->SetLabel(wxString::Format(wxT("%i"), m_slider_k->GetValue()));
+	m_generator.set_k((float)m_slider_k->GetValue()/10);
+	m_data = m_generator.get_next();
 	Repaint();
 }
 
 void GUIMyFrame1::m_slider_x_scroll(wxScrollEvent& event)
 {
-	rotation.data[0] = (m_slider_x->GetValue());
-	//TO DO: remove after implementing animation
-	data = generator.get_next();
+	m_staticText_x->SetLabel(wxString::Format(wxT("%i"), m_slider_x->GetValue()));
+	m_rotation.data[0] = (m_slider_x->GetValue());
 	Repaint();
 }
 
 void GUIMyFrame1::m_slider_y_scroll(wxScrollEvent& event)
 {
-	rotation.data[1] = (m_slider_y->GetValue());
+	m_staticText_y->SetLabel(wxString::Format(wxT("%i"), m_slider_y->GetValue()));
+	m_rotation.data[1] = (m_slider_y->GetValue());
 	Repaint();
 }
 
 void GUIMyFrame1::m_slider_z_scroll(wxScrollEvent& event)
 {
-	rotation.data[2] = (m_slider_z->GetValue());
+	m_staticText_z->SetLabel(wxString::Format(wxT("%i"), m_slider_z->GetValue()));
+	m_rotation.data[2] = (m_slider_z->GetValue());
 	Repaint();
 }
 
-void GUIMyFrame1::m_checkBoxDot_check( wxCommandEvent& event )
+void GUIMyFrame1::m_checkBoxDot_check(wxCommandEvent& event)
 {
 	m_checkBoxLine->SetValue(false);
+	m_generator.set_animate(m_checkBoxAnimuj->IsChecked());
 	Repaint();
 }
 
-void GUIMyFrame1::m_checkBoxLine_check( wxCommandEvent& event )
+void GUIMyFrame1::m_checkBoxLine_check(wxCommandEvent& event)
 {
 	m_checkBoxDot->SetValue(false);
 	Repaint();
 }
 
-void GUIMyFrame1::m_checkBoxAnimuj_clicked( wxCommandEvent& event )
+void GUIMyFrame1::m_checkBoxAnimuj_clicked(wxCommandEvent& event)
 {
-	generator.set_animate(m_checkBoxAnimuj->IsChecked());
+	m_generator.set_animate(m_checkBoxAnimuj->IsChecked());
+	m_data = m_generator.get_next();
 	Repaint();
 }
 
-Matrix4 RotateX(float x) {
 
-	Matrix4 temp;
-	float a = x * M_PI / 180.;
-	temp.data[1][1] = cos(a);
-	temp.data[2][2] = cos(a);
-	temp.data[1][2] = sin(a);
-	temp.data[2][1] = -sin(a);
-	temp.data[0][0] = 1.;
 
-	return temp;
+void GUIMyFrame1::Repaint() 
+{
+	if (m_checkBoxAnimuj->IsChecked()) 
+		m_timer1.Stop();
 
-}
-
-Matrix4 RotateY(float y) {
-
-	Matrix4 temp;
-	float a = y * M_PI / 180.;
-	temp.data[0][0] = cos(a);
-	temp.data[2][2] = cos(a);
-	temp.data[2][0] = sin(a);
-	temp.data[0][2] = -sin(a);
-	temp.data[1][1] = 1.;
-
-	return temp;
-
-}
-
-Matrix4 RotateZ(float z) {
-
-	Matrix4 temp;
-	float a = z * M_PI / 180.;
-	temp.data[0][0] = cos(a);
-	temp.data[1][1] = cos(a);
-	temp.data[0][1] = sin(a);
-	temp.data[1][0] = -sin(a);
-	temp.data[2][2] = 1.;
-
-	return temp;
-
-}
-
-Matrix4 Projection(float w, float h) {
-
-	Matrix4 temp1;
-	Matrix4 temp2;
-
-	temp1.data[0][0] = 1.;
-	temp1.data[1][1] = 1.;
-
-	temp1.data[3][2] = .5;
-
-	temp2.data[0][0] = w / 2.;
-	temp2.data[1][1] = -h / 2.;
-
-	temp2.data[0][3] = w / 2.;
-	temp2.data[1][3] = h / 2.;
-
-	return temp2 * temp1;
-
-}
-
-Vector4 Normalization(Vector4 v) {
-
-	Vector4 temp = v;
-	temp.data[0] /= v.data[3];
-	temp.data[1] /= v.data[3];
-	temp.data[2] /= v.data[3];
-
-	return temp;
-
-}
-
-void GUIMyFrame1::Repaint() {
-
-	Matrix4 M1 = RotateZ(rotation.GetX());
-	Matrix4 M2 = RotateY(rotation.GetY());
-	Matrix4 M3 = RotateX(rotation.GetZ());
+	Matrix4 M1 = RotateZ(m_rotation.GetX());
+	Matrix4 M2 = RotateY(m_rotation.GetY());
+	Matrix4 M3 = RotateX(m_rotation.GetZ());
 
 	Matrix4 M = M3 * M2 * M1;
 
@@ -210,23 +170,24 @@ void GUIMyFrame1::Repaint() {
 	wxBufferedDC bDC = &DC;
 
 	bDC.Clear();
-
-	for (unsigned int i = 0; i < data.size(); i++) {
-
-		bDC.SetPen(wxPen(wxColour(data[i].color.R, data[i].color.G, data[i].color.B)));
+	
+	for (unsigned int i = 0; i < m_data.size(); i++) {
+	
+		bDC.SetPen(wxPen(wxColour(m_data[i].color.R, m_data[i].color.G, m_data[i].color.B)));
 
 		Vector4 v1;
 		Vector4 v2;
-
-		v1.Set(data[i].begin.x, data[i].begin.y, data[i].begin.z);
-		v2.Set(data[i].end.x, data[i].end.y, data[i].end.z);
+		
+		v1.Set(m_data[i].begin.x, m_data[i].begin.y, m_data[i].begin.z);
+		v2.Set(m_data[i].end.x, m_data[i].end.y, m_data[i].end.z);
 
 		v1 = Normalization(M * v1);
 		v2 = Normalization(M * v2);
 
 		if (v1.GetZ() <= -2. && v2.GetZ() <= -2.) continue;
 
-		else if ((v1.GetZ() > -2. && v2.GetZ() <= -2.) || (v2.GetZ() > -2. && v1.GetZ() <= -2.)) {
+		else if ((v1.GetZ() > -2. && v2.GetZ() <= -2.) || (v2.GetZ() > -2. && v1.GetZ() <= -2.))
+		{
 
 			Vector4 temp1;
 			Vector4 temp2;
@@ -246,7 +207,8 @@ void GUIMyFrame1::Repaint() {
 
 		}
 
-		else {
+		else 
+		{
 
 			v1 = Normalization(MP * v1);
 			v2 = Normalization(MP * v2);
@@ -256,12 +218,23 @@ void GUIMyFrame1::Repaint() {
 		if (m_checkBoxLine->IsChecked()) bDC.DrawLine(v1.GetX(), v1.GetY(), v2.GetX(), v2.GetY());
 		else if (m_checkBoxDot->IsChecked()) {
 
-			bDC.DrawPoint(v1.GetX(), v1.GetY());
-			bDC.DrawPoint(v2.GetX(), v2.GetY());
+			bDC.DrawCircle(v1.GetX(), v1.GetY(), 2);
+			bDC.DrawCircle(v2.GetX(), v2.GetY(), 2);
 
 		}
-
 	}
 
-
+	if (m_checkBoxAnimuj->IsChecked()) 
+		m_timer1.Start();
+		
 }
+
+void GUIMyFrame1::m_onTimer(wxTimerEvent& event)
+{
+	m_data = m_generator.get_next();
+	Repaint();
+}
+
+
+
+	

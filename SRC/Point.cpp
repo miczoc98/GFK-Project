@@ -20,11 +20,16 @@ Point Point::as_spherical()
 	return Point(x, y, z);
 }
 
-Color& Color::operator-(int i)
+Color& Color::operator+=(int i)
 {
-	R -= i;
-	G -= i;
-	B -= i;
+	R += i;
+	G += i;
+	B += i;
+
+	R = R < 255 ? R : 255;
+	G = G < 255 ? G : 255;
+	B = B < 255 ? B : 255;
+
 
 	return *this;
 }

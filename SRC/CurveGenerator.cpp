@@ -3,8 +3,9 @@
 CurveGenerator::CurveGenerator(int max_len, double seg_len)
 {
 	m_curve = LissajousCurve();
-	m_max_len = max_len;
-	m_segment_len = seg_len;
+	m_max_segment_count = max_len;
+	m_max_animation_segment_count = 0.3 * max_len;
+	m_segment_length = seg_len;
 }
 
 std::deque<Segment> CurveGenerator::get_next()
@@ -13,20 +14,27 @@ std::deque<Segment> CurveGenerator::get_next()
 	{
 		Segment seg = generate_segment();
 
-		if (m_len > m_max_len)
+		if (m_current_segment_count > m_max_animation_segment_count)
 		{
 			m_queue.pop_front();
-			m_queue[0].color = m_queue[0].color - 1;
 		}
 		else
-			m_len++;
+			m_current_segment_count++;
+
 		m_queue.push_back(seg);
+
+		for (int i = 0.7 * m_max_animation_segment_count; i < m_current_segment_count; i++)
+		{
+			m_queue[i].color += 10;
+		}
+
+		return m_queue;
 	}
 	else
 	{
-		while(m_len < m_max_len)
+		while (m_current_segment_count < m_max_segment_count)
 		{
-			m_len++;
+			m_current_segment_count++;
 			Segment seg = generate_segment();
 			m_queue.push_back(seg);
 		}
@@ -64,39 +72,39 @@ void CurveGenerator::set_C(double C)
 	reset();
 }
 
-void CurveGenerator::set_alpha(double alpha)
+void CurveGenerator::set_phi(double phi)
 {
-	m_curve.set_alpha(alpha);
+	m_curve.set_phi(phi);
 	reset();
 }
 
-void CurveGenerator::set_beta(double beta)
+void CurveGenerator::set_psi(double psi)
 {
-	m_curve.set_beta(beta);
+	m_curve.set_psi(psi);
 	reset();
 }
 
-void CurveGenerator::set_gamma(double gamma)
+void CurveGenerator::set_theta(double theta)
 {
-	m_curve.set_gamma(gamma);
+	m_curve.set_theta(theta);
 	reset();
 }
 
-void CurveGenerator::set_f(double f)
+void CurveGenerator::set_m(double m)
 {
-	m_curve.set_f(f);
+	m_curve.set_m(m);
 	reset();
 }
 
-void CurveGenerator::set_g(double g)
+void CurveGenerator::set_n(double n)
 {
-	m_curve.set_g(g);
+	m_curve.set_n(n);
 	reset();
 }
 
-void CurveGenerator::set_h(double h)
+void CurveGenerator::set_k(double k)
 {
-	m_curve.set_h(h);
+	m_curve.set_k(k);
 	reset();
 }
 
@@ -104,7 +112,7 @@ void CurveGenerator::reset()
 {
 	m_t = 0;
 	m_queue.clear();
-	m_len = 0;
+	m_current_segment_count = 0;
 }
 
 Segment CurveGenerator::generate_segment()
@@ -112,9 +120,11 @@ Segment CurveGenerator::generate_segment()
 	Point start = m_curve.get_pos(m_t, m_is_cartesian);
 	double current_segment_length = 0;
 	Point pos;
-	while (current_segment_length < m_segment_len)
+	int i = 0;
+	while (current_segment_length < m_segment_length && i < 400)
 	{
-		pos = m_curve.get_pos(m_t += step, m_is_cartesian);
+		i++;
+		pos = m_curve.get_pos(m_t += m_segment_generation_step, m_is_cartesian);
 		current_segment_length = sqrt(pow(start.x - pos.x, 2) + pow(start.y - pos.y, 2) + pow(start.z - pos.z, 2));
 	}
 	return Segment(start, pos, Color(0, 0, 0));

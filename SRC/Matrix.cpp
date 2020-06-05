@@ -116,3 +116,76 @@ Vector4 operator* (const Matrix4 gMatrix, const Vector4 gVector)
 	return tmp;
 
 }
+
+Matrix4 RotateX(float x) {
+
+	Matrix4 temp;
+	float a = x * M_PI / 180.;
+	temp.data[1][1] = cos(a);
+	temp.data[2][2] = cos(a);
+	temp.data[1][2] = sin(a);
+	temp.data[2][1] = -sin(a);
+	temp.data[0][0] = 1.;
+
+	return temp;
+
+}
+
+Matrix4 RotateY(float y) {
+
+	Matrix4 temp;
+	float a = y * M_PI / 180.;
+	temp.data[0][0] = cos(a);
+	temp.data[2][2] = cos(a);
+	temp.data[2][0] = sin(a);
+	temp.data[0][2] = -sin(a);
+	temp.data[1][1] = 1.;
+
+	return temp;
+
+}
+
+Matrix4 RotateZ(float z) {
+
+	Matrix4 temp;
+	float a = z * M_PI / 180.;
+	temp.data[0][0] = cos(a);
+	temp.data[1][1] = cos(a);
+	temp.data[0][1] = sin(a);
+	temp.data[1][0] = -sin(a);
+	temp.data[2][2] = 1.;
+
+	return temp;
+
+}
+
+Matrix4 Projection(float w, float h) {
+
+	Matrix4 temp1;
+	Matrix4 temp2;
+
+	temp1.data[0][0] = 1.;
+	temp1.data[1][1] = 1.;
+
+	temp1.data[3][2] = .5;
+
+	temp2.data[0][0] = w / 2.;
+	temp2.data[1][1] = -h / 2.;
+
+	temp2.data[0][3] = w / 2.;
+	temp2.data[1][3] = h / 2.;
+
+	return temp2 * temp1;
+
+}
+
+Vector4 Normalization(Vector4 v) {
+
+	Vector4 temp = v;
+	temp.data[0] /= v.data[3];
+	temp.data[1] /= v.data[3];
+	temp.data[2] /= v.data[3];
+
+	return temp;
+
+}

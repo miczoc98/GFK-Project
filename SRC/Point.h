@@ -21,7 +21,7 @@ struct Color
 	int G;
 	int B;
 	Color(int _R, int _G, int _B) : R(_R), G(_G), B(_B) {}
-	Color& operator-(int i);
+	Color& operator+=(int i);
 };
 
 struct Segment

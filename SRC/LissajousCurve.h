@@ -14,12 +14,12 @@ public:
 	void set_A(double A) { _A = A; };
 	void set_B(double B) { _B = B; };
 	void set_C(double C) { _C = C; };
-	void set_alpha(double alpha) { _alpha = alpha; };
-	void set_beta(double beta) { _beta = beta; };
-	void set_gamma(double gamma) { _gamma = gamma; };
-	void set_f(double f) { _f = f; };
-	void set_g(double g) { _g = g; };
-	void set_h(double h) { _h = h; };
+	void set_phi(double phi) { _phi = phi; };
+	void set_psi(double psi) { _psi = psi; };
+	void set_theta(double theta) { _theta = theta; };
+	void set_m(double m) { _m = m; };
+	void set_n(double n) { _n = n; };
+	void set_k(double k) { _k = k; };
 
 
 private:
@@ -27,12 +27,12 @@ private:
 	double _B;
 	double _C;
 	
-	double _alpha;
-	double _beta;
-	double _gamma;
+	double _phi;
+	double _psi;
+	double _theta;
 
-	double _f;
-	double _g;
-	double _h;
+	double _m;
+	double _n;
+	double _k;
 
 };

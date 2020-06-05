@@ -38,10 +38,16 @@ MyFrame1::MyFrame1( wxWindow* parent, wxWindowID id, const wxString& title, cons
 	m_staticTextA->Wrap( -1 );
 	bSizer5->Add( m_staticTextA, 0, wxALL, 5 );
 
-	m_slider_a = new wxSlider( this, wxID_ANY, 50, 0, 100, wxDefaultPosition, wxDefaultSize, wxSL_BOTH|wxSL_HORIZONTAL|wxSL_VALUE_LABEL );
+	m_slider_a = new wxSlider( this, wxID_ANY, 100, 0, 100, wxDefaultPosition, wxDefaultSize, wxSL_BOTH|wxSL_HORIZONTAL );
 	m_slider_a->SetMaxSize( wxSize( 215,35 ) );
 
 	bSizer5->Add( m_slider_a, 1, wxALL, 5 );
+
+	m_staticText_a = new wxStaticText( this, wxID_ANY, wxT("1"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticText_a->Wrap( -1 );
+	m_staticText_a->SetMinSize( wxSize( 15,-1 ) );
+
+	bSizer5->Add( m_staticText_a, 0, wxALL, 5 );
 
 
 	bSizer2->Add( bSizer5, 0, wxEXPAND, 5 );
@@ -53,10 +59,16 @@ MyFrame1::MyFrame1( wxWindow* parent, wxWindowID id, const wxString& title, cons
 	m_staticTextB->Wrap( -1 );
 	bSizer6->Add( m_staticTextB, 0, wxALL, 5 );
 
-	m_slider_b = new wxSlider( this, wxID_ANY, 50, 0, 100, wxDefaultPosition, wxDefaultSize, wxSL_BOTH|wxSL_HORIZONTAL|wxSL_VALUE_LABEL );
+	m_slider_b = new wxSlider( this, wxID_ANY, 100, 0, 100, wxDefaultPosition, wxDefaultSize, wxSL_BOTH|wxSL_HORIZONTAL );
 	m_slider_b->SetMaxSize( wxSize( 215,35 ) );
 
 	bSizer6->Add( m_slider_b, 1, wxALL, 5 );
+
+	m_staticText_b = new wxStaticText( this, wxID_ANY, wxT("1"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticText_b->Wrap( -1 );
+	m_staticText_b->SetMinSize( wxSize( 15,-1 ) );
+
+	bSizer6->Add( m_staticText_b, 0, wxALL, 5 );
 
 
 	bSizer2->Add( bSizer6, 0, wxEXPAND, 5 );
@@ -68,10 +80,16 @@ MyFrame1::MyFrame1( wxWindow* parent, wxWindowID id, const wxString& title, cons
 	m_staticTextC->Wrap( -1 );
 	bSizer7->Add( m_staticTextC, 0, wxALL, 5 );
 
-	m_slider_c = new wxSlider( this, wxID_ANY, 50, 0, 100, wxDefaultPosition, wxDefaultSize, wxSL_BOTH|wxSL_HORIZONTAL|wxSL_VALUE_LABEL );
+	m_slider_c = new wxSlider( this, wxID_ANY, 100, 0, 100, wxDefaultPosition, wxDefaultSize, wxSL_BOTH|wxSL_HORIZONTAL );
 	m_slider_c->SetMaxSize( wxSize( 215,35 ) );
 
 	bSizer7->Add( m_slider_c, 1, wxALL, 5 );
+
+	m_staticText_c = new wxStaticText( this, wxID_ANY, wxT("1"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticText_c->Wrap( -1 );
+	m_staticText_c->SetMinSize( wxSize( 15,-1 ) );
+
+	bSizer7->Add( m_staticText_c, 0, wxALL, 5 );
 
 
 	bSizer2->Add( bSizer7, 0, wxEXPAND, 5 );
@@ -85,10 +103,16 @@ MyFrame1::MyFrame1( wxWindow* parent, wxWindowID id, const wxString& title, cons
 
 	bSizer8->Add( m_staticText6, 0, wxALL, 5 );
 
-	m_slider_phi = new wxSlider( this, wxID_ANY, 50, 0, 100, wxDefaultPosition, wxDefaultSize, wxSL_BOTH|wxSL_HORIZONTAL|wxSL_VALUE_LABEL );
+	m_slider_phi = new wxSlider( this, wxID_ANY, 0, 1, 360, wxDefaultPosition, wxDefaultSize, wxSL_BOTH|wxSL_HORIZONTAL );
 	m_slider_phi->SetMaxSize( wxSize( 210,35 ) );
 
 	bSizer8->Add( m_slider_phi, 1, wxALL, 5 );
+
+	m_staticText_phi = new wxStaticText( this, wxID_ANY, wxT("1"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticText_phi->Wrap( -1 );
+	m_staticText_phi->SetMinSize( wxSize( 15,-1 ) );
+
+	bSizer8->Add( m_staticText_phi, 0, wxALL, 5 );
 
 
 	bSizer2->Add( bSizer8, 0, wxEXPAND, 5 );
@@ -102,10 +126,16 @@ MyFrame1::MyFrame1( wxWindow* parent, wxWindowID id, const wxString& title, cons
 
 	bSizer9->Add( m_staticText7, 0, wxALL, 5 );
 
-	m_slider_psi = new wxSlider( this, wxID_ANY, 50, 0, 100, wxDefaultPosition, wxDefaultSize, wxSL_BOTH|wxSL_HORIZONTAL|wxSL_VALUE_LABEL );
+	m_slider_psi = new wxSlider( this, wxID_ANY, 0, 1, 360, wxDefaultPosition, wxDefaultSize, wxSL_BOTH|wxSL_HORIZONTAL );
 	m_slider_psi->SetMaxSize( wxSize( 210,35 ) );
 
 	bSizer9->Add( m_slider_psi, 1, wxALL, 5 );
+
+	m_staticText_psi = new wxStaticText( this, wxID_ANY, wxT("1"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticText_psi->Wrap( -1 );
+	m_staticText_psi->SetMinSize( wxSize( 15,-1 ) );
+
+	bSizer9->Add( m_staticText_psi, 0, wxALL, 5 );
 
 
 	bSizer2->Add( bSizer9, 0, wxEXPAND, 5 );
@@ -119,10 +149,16 @@ MyFrame1::MyFrame1( wxWindow* parent, wxWindowID id, const wxString& title, cons
 
 	bSizer151->Add( m_staticText10, 0, wxALL, 5 );
 
-	m_slider_teta = new wxSlider( this, wxID_ANY, 50, 0, 100, wxDefaultPosition, wxDefaultSize, wxSL_BOTH|wxSL_HORIZONTAL|wxSL_VALUE_LABEL );
+	m_slider_teta = new wxSlider( this, wxID_ANY, 0, 1, 360, wxDefaultPosition, wxDefaultSize, wxSL_BOTH|wxSL_HORIZONTAL );
 	m_slider_teta->SetMaxSize( wxSize( 215,35 ) );
 
 	bSizer151->Add( m_slider_teta, 1, wxALL, 5 );
+
+	m_staticText_teta = new wxStaticText( this, wxID_ANY, wxT("1"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticText_teta->Wrap( -1 );
+	m_staticText_teta->SetMinSize( wxSize( 15,-1 ) );
+
+	bSizer151->Add( m_staticText_teta, 0, wxALL, 5 );
 
 
 	bSizer2->Add( bSizer151, 0, wxEXPAND, 5 );
@@ -134,10 +170,16 @@ MyFrame1::MyFrame1( wxWindow* parent, wxWindowID id, const wxString& title, cons
 	m_staticText11->Wrap( -1 );
 	bSizer16->Add( m_staticText11, 0, wxALL, 5 );
 
-	m_slider_n = new wxSlider( this, wxID_ANY, 50, 0, 100, wxDefaultPosition, wxDefaultSize, wxSL_BOTH|wxSL_HORIZONTAL|wxSL_VALUE_LABEL );
+	m_slider_n = new wxSlider( this, wxID_ANY, 1, 1, 100, wxDefaultPosition, wxDefaultSize, wxSL_BOTH|wxSL_HORIZONTAL );
 	m_slider_n->SetMaxSize( wxSize( 215,35 ) );
 
 	bSizer16->Add( m_slider_n, 1, wxALL, 5 );
+
+	m_staticText_n = new wxStaticText( this, wxID_ANY, wxT("1"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticText_n->Wrap( -1 );
+	m_staticText_n->SetMinSize( wxSize( 15,-1 ) );
+
+	bSizer16->Add( m_staticText_n, 0, wxALL, 5 );
 
 
 	bSizer2->Add( bSizer16, 0, wxEXPAND, 5 );
@@ -151,10 +193,16 @@ MyFrame1::MyFrame1( wxWindow* parent, wxWindowID id, const wxString& title, cons
 
 	bSizer17->Add( m_staticText12, 0, wxALL, 5 );
 
-	m_slider_m = new wxSlider( this, wxID_ANY, 50, 0, 100, wxDefaultPosition, wxDefaultSize, wxSL_BOTH|wxSL_HORIZONTAL|wxSL_VALUE_LABEL );
+	m_slider_m = new wxSlider( this, wxID_ANY, 1, 1, 100, wxDefaultPosition, wxDefaultSize, wxSL_BOTH|wxSL_HORIZONTAL );
 	m_slider_m->SetMaxSize( wxSize( 215,35 ) );
 
 	bSizer17->Add( m_slider_m, 1, wxALL, 5 );
+
+	m_staticText_m = new wxStaticText( this, wxID_ANY, wxT("1"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticText_m->Wrap( -1 );
+	m_staticText_m->SetMinSize( wxSize( 15,-1 ) );
+
+	bSizer17->Add( m_staticText_m, 0, wxALL, 5 );
 
 
 	bSizer2->Add( bSizer17, 0, wxEXPAND, 5 );
@@ -166,10 +214,16 @@ MyFrame1::MyFrame1( wxWindow* parent, wxWindowID id, const wxString& title, cons
 	m_staticText13->Wrap( -1 );
 	bSizer18->Add( m_staticText13, 0, wxALL, 5 );
 
-	m_slider_k = new wxSlider( this, wxID_ANY, 50, 0, 100, wxDefaultPosition, wxDefaultSize, wxSL_BOTH|wxSL_HORIZONTAL|wxSL_VALUE_LABEL );
+	m_slider_k = new wxSlider( this, wxID_ANY, 1, 1, 100, wxDefaultPosition, wxDefaultSize, wxSL_BOTH|wxSL_HORIZONTAL );
 	m_slider_k->SetMaxSize( wxSize( 215,35 ) );
 
 	bSizer18->Add( m_slider_k, 1, wxALL, 5 );
+
+	m_staticText_k = new wxStaticText( this, wxID_ANY, wxT("1"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticText_k->Wrap( -1 );
+	m_staticText_k->SetMinSize( wxSize( 15,-1 ) );
+
+	bSizer18->Add( m_staticText_k, 0, wxALL, 5 );
 
 
 	bSizer2->Add( bSizer18, 0, wxEXPAND, 5 );
@@ -194,10 +248,16 @@ MyFrame1::MyFrame1( wxWindow* parent, wxWindowID id, const wxString& title, cons
 	m_staticTextX->Wrap( -1 );
 	bSizer10->Add( m_staticTextX, 0, wxALL, 5 );
 
-	m_slider_x = new wxSlider( this, wxID_ANY, 50, 0, 100, wxDefaultPosition, wxDefaultSize, wxSL_BOTH|wxSL_HORIZONTAL|wxSL_VALUE_LABEL );
+	m_slider_x = new wxSlider( this, wxID_ANY, 0, 0, 360, wxDefaultPosition, wxDefaultSize, wxSL_BOTH|wxSL_HORIZONTAL );
 	m_slider_x->SetMaxSize( wxSize( 215,35 ) );
 
 	bSizer10->Add( m_slider_x, 1, wxALL, 5 );
+
+	m_staticText_x = new wxStaticText( this, wxID_ANY, wxT("0"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticText_x->Wrap( -1 );
+	m_staticText_x->SetMinSize( wxSize( 15,-1 ) );
+
+	bSizer10->Add( m_staticText_x, 0, wxALL, 5 );
 
 
 	bSizer2->Add( bSizer10, 0, wxEXPAND, 5 );
@@ -209,10 +269,16 @@ MyFrame1::MyFrame1( wxWindow* parent, wxWindowID id, const wxString& title, cons
 	m_staticTextY->Wrap( -1 );
 	bSizer11->Add( m_staticTextY, 0, wxALL, 5 );
 
-	m_slider_y = new wxSlider( this, wxID_ANY, 50, 0, 100, wxDefaultPosition, wxDefaultSize, wxSL_BOTH|wxSL_HORIZONTAL|wxSL_VALUE_LABEL );
+	m_slider_y = new wxSlider( this, wxID_ANY, 0, 0, 360, wxDefaultPosition, wxDefaultSize, wxSL_BOTH|wxSL_HORIZONTAL );
 	m_slider_y->SetMaxSize( wxSize( 215,35 ) );
 
 	bSizer11->Add( m_slider_y, 1, wxALL, 5 );
+
+	m_staticText_y = new wxStaticText( this, wxID_ANY, wxT("0"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticText_y->Wrap( -1 );
+	m_staticText_y->SetMinSize( wxSize( 15,-1 ) );
+
+	bSizer11->Add( m_staticText_y, 0, wxALL, 5 );
 
 
 	bSizer2->Add( bSizer11, 0, wxEXPAND, 5 );
@@ -224,10 +290,16 @@ MyFrame1::MyFrame1( wxWindow* parent, wxWindowID id, const wxString& title, cons
 	m_staticTextZ->Wrap( -1 );
 	bSizer12->Add( m_staticTextZ, 0, wxALL, 5 );
 
-	m_slider_z = new wxSlider( this, wxID_ANY, 50, 0, 100, wxDefaultPosition, wxDefaultSize, wxSL_BOTH|wxSL_HORIZONTAL|wxSL_VALUE_LABEL );
+	m_slider_z = new wxSlider( this, wxID_ANY, 0, 0, 360, wxDefaultPosition, wxDefaultSize, wxSL_BOTH|wxSL_HORIZONTAL );
 	m_slider_z->SetMaxSize( wxSize( 215,35 ) );
 
 	bSizer12->Add( m_slider_z, 1, wxALL, 5 );
+
+	m_staticText_z = new wxStaticText( this, wxID_ANY, wxT("0"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticText_z->Wrap( -1 );
+	m_staticText_z->SetMinSize( wxSize( 15,-1 ) );
+
+	bSizer12->Add( m_staticText_z, 0, wxALL, 5 );
 
 
 	bSizer2->Add( bSizer12, 0, wxEXPAND, 5 );
@@ -262,6 +334,9 @@ MyFrame1::MyFrame1( wxWindow* parent, wxWindowID id, const wxString& title, cons
 
 	this->SetSizer( bSizer1 );
 	this->Layout();
+	m_timer1.SetOwner( this, wxID_ANY );
+	m_timer1.Start( 40 );
+
 
 	this->Centre( wxBOTH );
 
@@ -379,6 +454,7 @@ MyFrame1::MyFrame1( wxWindow* parent, wxWindowID id, const wxString& title, cons
 	m_checkBoxDot->Connect( wxEVT_COMMAND_CHECKBOX_CLICKED, wxCommandEventHandler( MyFrame1::m_checkBoxDot_check ), NULL, this );
 	m_checkBoxLine->Connect( wxEVT_COMMAND_CHECKBOX_CLICKED, wxCommandEventHandler( MyFrame1::m_checkBoxLine_check ), NULL, this );
 	m_checkBoxAnimuj->Connect( wxEVT_COMMAND_CHECKBOX_CLICKED, wxCommandEventHandler( MyFrame1::m_checkBoxAnimuj_clicked ), NULL, this );
+	this->Connect( wxID_ANY, wxEVT_TIMER, wxTimerEventHandler( MyFrame1::m_onTimer ) );
 }
 
 MyFrame1::~MyFrame1()
@@ -497,5 +573,6 @@ MyFrame1::~MyFrame1()
 	m_checkBoxDot->Disconnect( wxEVT_COMMAND_CHECKBOX_CLICKED, wxCommandEventHandler( MyFrame1::m_checkBoxDot_check ), NULL, this );
 	m_checkBoxLine->Disconnect( wxEVT_COMMAND_CHECKBOX_CLICKED, wxCommandEventHandler( MyFrame1::m_checkBoxLine_check ), NULL, this );
 	m_checkBoxAnimuj->Disconnect( wxEVT_COMMAND_CHECKBOX_CLICKED, wxCommandEventHandler( MyFrame1::m_checkBoxAnimuj_clicked ), NULL, this );
+	this->Disconnect( wxID_ANY, wxEVT_TIMER, wxTimerEventHandler( MyFrame1::m_onTimer ) );
 
 }
