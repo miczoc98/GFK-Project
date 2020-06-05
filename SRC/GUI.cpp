@@ -170,7 +170,7 @@ MyFrame1::MyFrame1( wxWindow* parent, wxWindowID id, const wxString& title, cons
 	m_staticText11->Wrap( -1 );
 	bSizer16->Add( m_staticText11, 0, wxALL, 5 );
 
-	m_slider_n = new wxSlider( this, wxID_ANY, 1, 1, 100, wxDefaultPosition, wxDefaultSize, wxSL_BOTH|wxSL_HORIZONTAL );
+	m_slider_n = new wxSlider( this, wxID_ANY, 10, 1, 100, wxDefaultPosition, wxDefaultSize, wxSL_BOTH|wxSL_HORIZONTAL );
 	m_slider_n->SetMaxSize( wxSize( 215,35 ) );
 
 	bSizer16->Add( m_slider_n, 1, wxALL, 5 );
@@ -193,7 +193,7 @@ MyFrame1::MyFrame1( wxWindow* parent, wxWindowID id, const wxString& title, cons
 
 	bSizer17->Add( m_staticText12, 0, wxALL, 5 );
 
-	m_slider_m = new wxSlider( this, wxID_ANY, 1, 1, 100, wxDefaultPosition, wxDefaultSize, wxSL_BOTH|wxSL_HORIZONTAL );
+	m_slider_m = new wxSlider( this, wxID_ANY, 10, 1, 100, wxDefaultPosition, wxDefaultSize, wxSL_BOTH|wxSL_HORIZONTAL );
 	m_slider_m->SetMaxSize( wxSize( 215,35 ) );
 
 	bSizer17->Add( m_slider_m, 1, wxALL, 5 );
@@ -214,7 +214,7 @@ MyFrame1::MyFrame1( wxWindow* parent, wxWindowID id, const wxString& title, cons
 	m_staticText13->Wrap( -1 );
 	bSizer18->Add( m_staticText13, 0, wxALL, 5 );
 
-	m_slider_k = new wxSlider( this, wxID_ANY, 1, 1, 100, wxDefaultPosition, wxDefaultSize, wxSL_BOTH|wxSL_HORIZONTAL );
+	m_slider_k = new wxSlider( this, wxID_ANY, 10, 1, 100, wxDefaultPosition, wxDefaultSize, wxSL_BOTH|wxSL_HORIZONTAL );
 	m_slider_k->SetMaxSize( wxSize( 215,35 ) );
 
 	bSizer18->Add( m_slider_k, 1, wxALL, 5 );

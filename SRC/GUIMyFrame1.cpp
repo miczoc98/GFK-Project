@@ -15,9 +15,9 @@ GUIMyFrame1::GUIMyFrame1(wxWindow* parent)
 	m_generator.set_psi((float)m_slider_psi->GetValue() * (M_PI / 180));
 	m_generator.set_theta((float)m_slider_teta->GetValue() * (M_PI / 180));
 
-	m_generator.set_m((float)m_slider_m->GetValue() * (M_PI / 180));
-	m_generator.set_n((float)m_slider_n->GetValue() * (M_PI / 180));
-	m_generator.set_k((float)m_slider_k->GetValue() * (M_PI / 180));
+	m_generator.set_m((float)m_slider_m->GetValue() / 10);
+	m_generator.set_n((float)m_slider_n->GetValue() / 10);
+	m_generator.set_k((float)m_slider_k->GetValue() / 10);
 
 
 	m_data = m_generator.get_next();
@@ -87,7 +87,7 @@ void GUIMyFrame1::m_slider_teta_scroll(wxScrollEvent& event)
 
 void GUIMyFrame1::m_slider_n_scroll(wxScrollEvent& event)
 {
-	m_staticText_n->SetLabel(wxString::Format(wxT("%i"), m_slider_n->GetValue()));
+	m_staticText_n->SetLabel(wxString::Format(wxT("%.1f"), (float)m_slider_n->GetValue()/10));
 	m_generator.set_n((float)m_slider_n->GetValue()/10);
 	m_data = m_generator.get_next();
 	Repaint();
@@ -95,7 +95,7 @@ void GUIMyFrame1::m_slider_n_scroll(wxScrollEvent& event)
 
 void GUIMyFrame1::m_slider_m_scroll(wxScrollEvent& event)
 {
-	m_staticText_m->SetLabel(wxString::Format(wxT("%i"), m_slider_m->GetValue()));
+	m_staticText_m->SetLabel(wxString::Format(wxT("%.1f"), (float)m_slider_m->GetValue() / 10));
 	m_generator.set_m((float)m_slider_m->GetValue()/10);
 	m_data = m_generator.get_next();
 	Repaint();
@@ -103,7 +103,7 @@ void GUIMyFrame1::m_slider_m_scroll(wxScrollEvent& event)
 
 void GUIMyFrame1::m_slider_k_scroll(wxScrollEvent& event)
 {
-	m_staticText_k->SetLabel(wxString::Format(wxT("%i"), m_slider_k->GetValue()));
+	m_staticText_k->SetLabel(wxString::Format(wxT("%.1f"), (float)m_slider_k->GetValue() / 10));
 	m_generator.set_k((float)m_slider_k->GetValue()/10);
 	m_data = m_generator.get_next();
 	Repaint();

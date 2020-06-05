@@ -18,8 +18,8 @@ LissajousCurve::LissajousCurve()
 
 Point LissajousCurve::get_pos(double t, bool as_cartesian)
 {
-	double x = _A * sin( _m * t + _phi);
-	double y = _B * sin( _n * t + _psi);
+	double x = _A * sin( _n * t + _phi);
+	double y = _B * sin( _m * t + _psi);
 	double z = _C * sin( _k * t + _theta);
 
 	return as_cartesian ? Point(x, y, z) : Point(x, y, z).as_spherical();
