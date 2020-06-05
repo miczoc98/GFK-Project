@@ -23,10 +23,8 @@ std::deque<Segment> CurveGenerator::get_next()
 
 		m_queue.push_back(seg);
 
-		for (int i = 0.7 * m_max_animation_segment_count; i < m_current_segment_count; i++)
-		{
-			m_queue[i].color += 10;
-		}
+		for (int i = 0; i < m_current_segment_count - 0.6 * m_max_animation_segment_count; i++)
+			m_queue[i].color += 255.0 / (0.4 * m_max_animation_segment_count);
 
 		return m_queue;
 	}

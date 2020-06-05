@@ -26,9 +26,9 @@ Color& Color::operator+=(int i)
 	G += i;
 	B += i;
 
-	R = R < 255 ? R : 255;
-	G = G < 255 ? G : 255;
-	B = B < 255 ? B : 255;
+	R = R < 256 ? R : 255;
+	G = G < 256 ? G : 255;
+	B = B < 256 ? B : 255;
 
 
 	return *this;
