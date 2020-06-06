@@ -1,0 +1,96 @@
+\include{preamble}
+
+\begin{document}
+	\section{Struktury danych}
+		\subsection{Deque}
+			Dwukierunkowa kolejka została użyta do przechowywania elementów krzywej w postaci segmentów.
+			Zaimplementowana w postaci kontenera biblioteki standardowej C++ std::deque.
+		\subsection{Color}
+			\begin{lstlisting}
+			struct Color
+			{
+			    Color(int _R, int _G, int _B) : R(_R), G(_G), B(_B) {}
+			    Color next();
+			    Color &operator+=(int i);
+			
+			    int R;
+			    int G;
+			    int B;
+			private:
+			    enum cycle
+			    {
+			        Ru,
+			        Gu,
+			        Rd,
+			        Bu,
+			        Gd,
+			        Bd,
+			    };
+			    cycle current_cycle = Ru;
+			    int m_step = 1;
+			};
+			\end{lstlisting}
+			Struktura przechowująca kolor w postaci kodu RGB.\\
+			Metoda \lstinline|next()| pozwala wygenerować następny kolor według schematu opisanego w sekcji Algorytmy.\\
+			\lstinline|operator+=(int i)| służy do zwiększenia jasności koloru poprzez dodanie \lstinline|i| do każdego ze składników RGB.
+		\subsection{Point}
+			\begin{lstlisting}
+				struct Point
+				{
+				    Point() = default;
+				    Point(double x, double y, double z);
+				    Point as_spherical();
+
+				    double x = 0;
+				    double y = 0;
+				    double z = 0;
+				};
+			\end{lstlisting}
+			Struktura przechowuje położenie punktu w postaci trzech współrzędnych w układzie kartezjańskim lub sferycznym.\\
+			Metoda \lstinline|as_spherical()| pozwala na interpretację punktu zapisanego we współrzędnych sferycznych w układzie kartezjańskim (co jest konieczne aby poprawnie wyświetlić go na ekranie).
+		\subsection{Segment}
+			\begin{lstlisting}
+				struct Segment
+				{
+				    Segment(Point _begin, Point _end, Color _color) : begin(_begin), end(_end), color(_color) {}
+				
+				    Point begin;
+				    Point end;
+				    Color color;
+				};
+			\end{lstlisting}
+			Struktura przechowująca informacje dotyczące pojedynczego odcinka w postaci: punkt początkowy, punkt końcowy, kolor odcinka.
+		\subsection{Vector4}
+			\begin{lstlisting}
+				struct Vector4
+				{
+				    friend Vector4 operator*(const Vector4&, double);
+				
+				    Vector4();
+				    Vector4 operator-(const Vector4&);
+				
+				    void set(double d1, double d2, double d3);
+				    double get_x();
+				    double get_y();
+				    double get_z();
+				
+				    double data[4];
+				};
+			\end{lstlisting}
+			Struktura przechowująca wektor w postaci [x, y, z, t]. Podczas inicjalizacji t jest ustawiane na 1.\\
+			\lstinline|operator*| pozwala wykonać mnożenie wektora przez skalar.
+		\subsection{Matrix4}
+			\begin{lstlisting}
+				struct Matrix4
+				{
+				    friend Vector4 operator*(const Matrix4, const Vector4);
+				
+				    Matrix4();
+				    Matrix4 operator*(const Matrix4);
+				
+				    double data[4][4];
+				};
+			\end{lstlisting}
+			Struktura zawierająca macierz 4x4.\\
+			Pozwala na operacje mnożenia wektorowego macierz $\times$ wektor i macierz $\times$ macierz.
+\end{document}
