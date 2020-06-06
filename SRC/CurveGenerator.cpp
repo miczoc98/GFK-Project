@@ -4,7 +4,7 @@ CurveGenerator::CurveGenerator(int max_len, double seg_len)
 {
 	m_curve = LissajousCurve();
 	m_max_segment_count = max_len;
-	m_max_animation_segment_count = 0.3 * max_len;
+	m_max_animation_segment_count = (int)(0.3 * max_len);
 	m_segment_length = seg_len;
 }
 
@@ -24,7 +24,7 @@ std::deque<Segment> CurveGenerator::get_next()
 		m_queue.push_back(seg);
 
 		for (int i = 0; i < m_current_segment_count - 0.6 * m_max_animation_segment_count; i++)
-			m_queue[i].color += 255.0 / (0.4 * m_max_animation_segment_count);
+			m_queue[i].color += (int)(255.0 / (0.4 * m_max_animation_segment_count));
 
 		return m_queue;
 	}

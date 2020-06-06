@@ -1,8 +1,9 @@
 #pragma once
 
 #include <deque>
+
 #include "LissajousCurve.h"
-#include "Point.h"
+#include "Segment.h"
 
 class CurveGenerator
 {

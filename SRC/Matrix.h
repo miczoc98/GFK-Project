@@ -4,40 +4,37 @@
 #include <stdio.h>
 #include <cmath>
 
-struct Vector4{
+struct Vector4
+{
+    friend Vector4 operator*(const Vector4&, double);
 
-	public:
-		double data[4];
-		Vector4();
-		void Set(double d1,double d2,double d3);
+    Vector4();
+    Vector4 operator-(const Vector4&);
 
-		double GetX();
-		double GetY();
-		double GetZ();
-		Vector4 operator-(const Vector4 &);
-		
-		friend Vector4 operator*(const Vector4 &,double);
+    void set(double d1, double d2, double d3);
+    double get_x();
+    double get_y();
+    double get_z();
 
+    double data[4];
 };
 
-class Matrix4{
+struct Matrix4
+{
+    friend Vector4 operator*(const Matrix4, const Vector4);
 
-	public:
-		double data[4][4];
-		Matrix4();
-		Matrix4 operator*(const Matrix4);
-		friend Vector4 operator*(const Matrix4,const Vector4);
+    Matrix4();
+    Matrix4 operator*(const Matrix4);
 
+    double data[4][4];
 };
 
-Matrix4 RotateX(float x);
+Matrix4 RotateX(double x);
 
-Matrix4 RotateY(float y);
+Matrix4 RotateY(double y);
 
-Matrix4 RotateZ(float z);
+Matrix4 RotateZ(double z);
 
-Matrix4 Projection(float w, float h);
+Matrix4 Projection(double w, double h);
 
 Vector4 Normalization(Vector4 v);
-
-

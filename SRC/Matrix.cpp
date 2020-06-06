@@ -11,28 +11,28 @@ Vector4::Vector4()
 }
 
 
-void Vector4::Set(double d1, double d2, double d3)
+void Vector4::set(double d1, double d2, double d3)
 {
 
 	data[0] = d1; data[1] = d2; data[2] = d3;
 
 }
 
-double Vector4::GetX()
+double Vector4::get_x()
 {
 
 	return data[0];
 
 }
 
-double Vector4::GetY()
+double Vector4::get_y()
 {
 
 	return data[1];
 
 }
 
-double Vector4::GetZ() {
+double Vector4::get_z() {
 
 	return data[2];
 
@@ -117,10 +117,10 @@ Vector4 operator* (const Matrix4 gMatrix, const Vector4 gVector)
 
 }
 
-Matrix4 RotateX(float x) {
+Matrix4 RotateX(double x) {
 
 	Matrix4 temp;
-	float a = x * M_PI / 180.;
+	double a = x * M_PI / 180.;
 	temp.data[1][1] = cos(a);
 	temp.data[2][2] = cos(a);
 	temp.data[1][2] = sin(a);
@@ -131,10 +131,10 @@ Matrix4 RotateX(float x) {
 
 }
 
-Matrix4 RotateY(float y) {
+Matrix4 RotateY(double y) {
 
 	Matrix4 temp;
-	float a = y * M_PI / 180.;
+	double a = y * M_PI / 180.;
 	temp.data[0][0] = cos(a);
 	temp.data[2][2] = cos(a);
 	temp.data[2][0] = sin(a);
@@ -145,10 +145,10 @@ Matrix4 RotateY(float y) {
 
 }
 
-Matrix4 RotateZ(float z) {
+Matrix4 RotateZ(double z) {
 
 	Matrix4 temp;
-	float a = z * M_PI / 180.;
+	double a = z * M_PI / 180.;
 	temp.data[0][0] = cos(a);
 	temp.data[1][1] = cos(a);
 	temp.data[0][1] = sin(a);
@@ -159,7 +159,7 @@ Matrix4 RotateZ(float z) {
 
 }
 
-Matrix4 Projection(float w, float h) {
+Matrix4 Projection(double w, double h) {
 
 	Matrix4 temp1;
 	Matrix4 temp2;

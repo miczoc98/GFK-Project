@@ -1,5 +1,5 @@
-#include "LissajousCurve.h"
 #include <cmath>
+#include "LissajousCurve.h"
 
 LissajousCurve::LissajousCurve()
 {

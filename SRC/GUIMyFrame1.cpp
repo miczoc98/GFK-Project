@@ -151,15 +151,22 @@ void GUIMyFrame1::m_checkBoxAnimuj_clicked(wxCommandEvent& event)
 }
 
 
+void GUIMyFrame1::m_onTimer(wxTimerEvent& event)
+{
+	m_data = m_generator.get_next();
+	Repaint();
+}
+
+
 
 void GUIMyFrame1::Repaint() 
 {
 	if (m_checkBoxAnimuj->IsChecked()) 
 		m_timer1.Stop();
 
-	Matrix4 M1 = RotateZ(m_rotation.GetX());
-	Matrix4 M2 = RotateY(m_rotation.GetY());
-	Matrix4 M3 = RotateX(m_rotation.GetZ());
+	Matrix4 M1 = RotateZ(m_rotation.get_x());
+	Matrix4 M2 = RotateY(m_rotation.get_y());
+	Matrix4 M3 = RotateX(m_rotation.get_z());
 
 	Matrix4 M = M3 * M2 * M1;
 
@@ -178,24 +185,24 @@ void GUIMyFrame1::Repaint()
 		Vector4 v1;
 		Vector4 v2;
 		
-		v1.Set(m_data[i].begin.x, m_data[i].begin.y, m_data[i].begin.z);
-		v2.Set(m_data[i].end.x, m_data[i].end.y, m_data[i].end.z);
+		v1.set(m_data[i].begin.x, m_data[i].begin.y, m_data[i].begin.z);
+		v2.set(m_data[i].end.x, m_data[i].end.y, m_data[i].end.z);
 
 		v1 = Normalization(M * v1);
 		v2 = Normalization(M * v2);
 
-		if (v1.GetZ() <= -2. && v2.GetZ() <= -2.) continue;
+		if (v1.get_z() <= -2. && v2.get_z() <= -2.) continue;
 
-		else if ((v1.GetZ() > -2. && v2.GetZ() <= -2.) || (v2.GetZ() > -2. && v1.GetZ() <= -2.))
+		else if ((v1.get_z() > -2. && v2.get_z() <= -2.) || (v2.get_z() > -2. && v1.get_z() <= -2.))
 		{
 
 			Vector4 temp1;
 			Vector4 temp2;
 
-			if (v2.GetZ() <= -2.) temp1 = v2;
+			if (v2.get_z() <= -2.) temp1 = v2;
 			else temp1 = v1;
 
-			if (v2.GetZ() <= -2.) temp1 = v1;
+			if (v2.get_z() <= -2.) temp1 = v1;
 			else temp1 = v2;
 
 			temp1.data[0] += (temp2.data[0] - temp1.data[0]) * abs((-2. - temp1.data[2]) / (temp2.data[2] - temp1.data[2]));
@@ -215,23 +222,17 @@ void GUIMyFrame1::Repaint()
 
 		}
 
-		if (m_checkBoxLine->IsChecked()) bDC.DrawLine(v1.GetX(), v1.GetY(), v2.GetX(), v2.GetY());
+		if (m_checkBoxLine->IsChecked()) bDC.DrawLine(v1.get_x(), v1.get_y(), v2.get_x(), v2.get_y());
 		else if (m_checkBoxDot->IsChecked()) {
 
-			bDC.DrawCircle(v1.GetX(), v1.GetY(), 1);
-			bDC.DrawCircle(v2.GetX(), v2.GetY(), 1);
+			bDC.DrawCircle(v1.get_x(), v1.get_y(), 1);
+			bDC.DrawCircle(v2.get_x(), v2.get_y(), 1);
 		}
 	}
 
 	if (m_checkBoxAnimuj->IsChecked()) 
 		m_timer1.Start();
 		
-}
-
-void GUIMyFrame1::m_onTimer(wxTimerEvent& event)
-{
-	m_data = m_generator.get_next();
-	Repaint();
 }
 
 

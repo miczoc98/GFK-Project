@@ -1,9 +1,8 @@
 #pragma once
 
-#include "Point.h"
 #include <vector>
+#include "Segment.h"
 
-//Curve described as x = Asin(alpha t + f), y = Bsin(beta t + g), z = Csin(gamma t + h)
 class LissajousCurve
 {
 public:

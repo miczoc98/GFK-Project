@@ -1,4 +1,4 @@
-#include "Point.h"
+#include "Segment.h"
 
 Point::Point(double _x, double _y, double _z)
 {
@@ -35,54 +35,54 @@ Color& Color::operator+=(int i)
 
 Color Color::next()
 {
-	switch (current_cycle)
+	switch (m_current_cycle)
 	{
-	case Gu:
+	case cycle::Gu:
 		G += m_step;
 		if (G > 255)
 		{
 			G = 255;
-			current_cycle = Rd;
+			m_current_cycle = cycle::Rd;
 		}
 		break;
-	case Rd:
+	case cycle::Rd:
 		R -= m_step;
 		if (R < 0)
 		{
 			R = 0;
-			current_cycle = Bu;
+			m_current_cycle = cycle::Bu;
 		}
 		break;
-	case Bu:
+	case cycle::Bu:
 		B += m_step;
 		if (B > 255)
 		{
 			B = 255;
-			current_cycle = Gd;
+			m_current_cycle = cycle::Gd;
 		}
 		break;
-	case Gd:
+	case cycle::Gd:
 		G -= m_step;
 		if (G < 0)
 		{
 			G = 0;
-			current_cycle = Ru;
+			m_current_cycle = cycle::Ru;
 		}
 		break;
-	case Ru:
+	case cycle::Ru:
 		R += m_step;
 		if (R > 255)
 		{
 			R = 255;
-			current_cycle = Bd;
+			m_current_cycle = cycle::Bd;
 		}
 		break;
-	case Bd:
+	case cycle::Bd:
 		B -= m_step;
 		if (B < 0)
 		{
 			B = 0;
-			current_cycle = Gu;
+			m_current_cycle = cycle::Gu;
 		}
 	}
 	return *this;
