@@ -160,12 +160,6 @@ void GUIMyFrame1::m_onTimer(wxTimerEvent& event)
 	Repaint();
 }
 
-//Testing
-void GUIMyFrame1::rewrite(wxSizeEvent& event)
-{
-	m_staticText_a->SetLabel(wxString::Format(wxT("%.2f"), (float)m_slider_a->GetValue() / 100));
-}
-
 
 
 void GUIMyFrame1::Repaint() 
