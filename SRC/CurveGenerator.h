@@ -30,8 +30,8 @@ private:
 	int m_max_segment_count = 200;
 	int m_max_animation_segment_count = 100;
 
-	double m_segment_length = 0.01;
-	double m_segment_generation_step = 0.001;
+	double m_segment_length = 0.02;
+	double m_segment_generation_step = 0.01;
 	
 	bool m_is_cartesian = true;
 	bool m_animate = false;

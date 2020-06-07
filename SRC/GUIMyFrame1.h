@@ -51,7 +51,7 @@ class GUIMyFrame1 : public MyFrame1
 	//// end generated class members
 	private:
 
-		double m_curve_segment_count = 1000;
+		double m_curve_segment_count = 2000;
 		double m_curve_segment_length = 0.02;
 		bool m_cartesian = true;
 
