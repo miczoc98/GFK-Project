@@ -178,6 +178,8 @@ void GUIMyFrame1::Repaint()
 
 	wxClientDC  DC = m_panel1;
 	wxBufferedDC bDC = &DC;
+	
+	bDC.SetBackground(wxColour(255, 255, 255));
 
 	bDC.Clear();
 	
