@@ -21,6 +21,9 @@ GUIMyFrame1::GUIMyFrame1(wxWindow* parent)
 
 
 	m_data = m_generator.get_next();
+
+	m_checkBoxLine->SetValue(true);
+
 	Repaint();
 }
 
@@ -157,6 +160,12 @@ void GUIMyFrame1::m_onTimer(wxTimerEvent& event)
 	Repaint();
 }
 
+//Testing
+void GUIMyFrame1::rewrite(wxSizeEvent& event)
+{
+	m_staticText_a->SetLabel(wxString::Format(wxT("%.2f"), (float)m_slider_a->GetValue() / 100));
+}
+
 
 
 void GUIMyFrame1::Repaint() 
@@ -191,7 +200,7 @@ void GUIMyFrame1::Repaint()
 		v1 = Normalization(M * v1);
 		v2 = Normalization(M * v2);
 
-		if (v1.get_z() <= -2. && v2.get_z() <= -2.) continue;
+		if (v1.get_z() <= -3. && v2.get_z() <= -3.) continue;
 
 		else if ((v1.get_z() > -2. && v2.get_z() <= -2.) || (v2.get_z() > -2. && v1.get_z() <= -2.))
 		{
@@ -199,15 +208,15 @@ void GUIMyFrame1::Repaint()
 			Vector4 temp1;
 			Vector4 temp2;
 
-			if (v2.get_z() <= -2.) temp1 = v2;
+			if (v2.get_z() <= -3.) temp1 = v2;
 			else temp1 = v1;
 
-			if (v2.get_z() <= -2.) temp1 = v1;
+			if (v2.get_z() <= -3.) temp1 = v1;
 			else temp1 = v2;
 
 			temp1.data[0] += (temp2.data[0] - temp1.data[0]) * abs((-2. - temp1.data[2]) / (temp2.data[2] - temp1.data[2]));
 			temp1.data[1] += (temp2.data[1] - temp1.data[1]) * abs((-2. - temp1.data[2]) / (temp2.data[2] - temp1.data[2]));
-			temp1.data[2] = -2.;
+			temp1.data[2] = -3.;
 
 			v1 = Normalization(MP * temp1);
 			v2 = Normalization(MP * temp2);

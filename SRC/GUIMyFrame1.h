@@ -43,6 +43,9 @@ class GUIMyFrame1 : public MyFrame1
 		void m_checkBoxLine_check( wxCommandEvent& event );
 		void m_checkBoxAnimuj_clicked( wxCommandEvent& event );
 		void m_onTimer(wxTimerEvent& event);
+		//Testing
+		void rewrite(wxSizeEvent& event);
+
 	public:
 		/** Constructor */
 		GUIMyFrame1( wxWindow* parent );

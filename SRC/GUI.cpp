@@ -32,9 +32,9 @@ MyFrame1::MyFrame1( wxWindow* parent, wxWindowID id, const wxString& title, cons
 	bSizer2->Add( bSizer4, 0, wxEXPAND, 5 );
 
 	wxBoxSizer* bSizer5;
-	bSizer5 = new wxBoxSizer( wxHORIZONTAL );
+	bSizer5 = new wxBoxSizer(wxHORIZONTAL );
 
-	m_staticTextA = new wxStaticText( this, wxID_ANY, wxT("A:"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticTextA = new wxStaticText( this, wxID_ANY, wxT("A:"), wxDefaultPosition, wxDefaultSize, 0);
 	m_staticTextA->Wrap( -1 );
 	bSizer5->Add( m_staticTextA, 0, wxALL, 5 );
 
@@ -455,6 +455,11 @@ MyFrame1::MyFrame1( wxWindow* parent, wxWindowID id, const wxString& title, cons
 	m_checkBoxLine->Connect( wxEVT_COMMAND_CHECKBOX_CLICKED, wxCommandEventHandler( MyFrame1::m_checkBoxLine_check ), NULL, this );
 	m_checkBoxAnimuj->Connect( wxEVT_COMMAND_CHECKBOX_CLICKED, wxCommandEventHandler( MyFrame1::m_checkBoxAnimuj_clicked ), NULL, this );
 	this->Connect( wxID_ANY, wxEVT_TIMER, wxTimerEventHandler( MyFrame1::m_onTimer ) );
+
+	//Testing
+	this->Connect(wxEVT_UPDATE_UI, wxSizeEventHandler(MyFrame1::rewrite));
+
+
 }
 
 MyFrame1::~MyFrame1()
@@ -574,5 +579,8 @@ MyFrame1::~MyFrame1()
 	m_checkBoxLine->Disconnect( wxEVT_COMMAND_CHECKBOX_CLICKED, wxCommandEventHandler( MyFrame1::m_checkBoxLine_check ), NULL, this );
 	m_checkBoxAnimuj->Disconnect( wxEVT_COMMAND_CHECKBOX_CLICKED, wxCommandEventHandler( MyFrame1::m_checkBoxAnimuj_clicked ), NULL, this );
 	this->Disconnect( wxID_ANY, wxEVT_TIMER, wxTimerEventHandler( MyFrame1::m_onTimer ) );
+
+	//Testing
+	this->Disconnect(wxEVT_UPDATE_UI, wxSizeEventHandler(MyFrame1::rewrite));
 
 }

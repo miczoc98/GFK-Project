@@ -101,6 +101,8 @@ class MyFrame1 : public wxFrame
 		virtual void m_checkBoxLine_check( wxCommandEvent& event ) { event.Skip(); }
 		virtual void m_checkBoxAnimuj_clicked( wxCommandEvent& event ) { event.Skip(); }
 		virtual void m_onTimer( wxTimerEvent& event ) { event.Skip(); }
+		//Testing
+		virtual void rewrite(wxSizeEvent& event) { event.Skip(); }
 
 
 	public:

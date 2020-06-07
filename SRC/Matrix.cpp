@@ -167,10 +167,10 @@ Matrix4 Projection(double w, double h) {
 	temp1.data[0][0] = 1.;
 	temp1.data[1][1] = 1.;
 
-	temp1.data[3][2] = .5;
+	temp1.data[3][2] = 1. / 3.;
 
-	temp2.data[0][0] = w / 2.;
-	temp2.data[1][1] = -h / 2.;
+	temp2.data[0][0] = w / 3.;
+	temp2.data[1][1] = -h / 3.;
 
 	temp2.data[0][3] = w / 2.;
 	temp2.data[1][3] = h / 2.;
