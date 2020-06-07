@@ -332,7 +332,7 @@ MyFrame1::MyFrame1( wxWindow* parent, wxWindowID id, const wxString& title, cons
 	this->SetSizer( bSizer1 );
 	this->Layout();
 	m_timer1.SetOwner( this, wxID_ANY );
-	m_timer1.Start( 40 );
+	m_timer1.Start( 20 );
 
 
 	this->Centre( wxBOTH );
