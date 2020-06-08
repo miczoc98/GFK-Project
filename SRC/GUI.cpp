@@ -22,10 +22,10 @@ MyFrame1::MyFrame1( wxWindow* parent, wxWindowID id, const wxString& title, cons
 	wxBoxSizer* bSizer4;
 	bSizer4 = new wxBoxSizer( wxHORIZONTAL );
 
-	m_button_kart = new wxButton( this, wxID_ANY, wxT("Kartezjanskie"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_button_kart = new wxButton( this, wxID_ANY, wxT("Cartesian"), wxDefaultPosition, wxDefaultSize, 0 );
 	bSizer4->Add( m_button_kart, 0, wxALL, 5 );
 
-	m_button_biegun = new wxButton( this, wxID_ANY, wxT("Biegunowe"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_button_biegun = new wxButton( this, wxID_ANY, wxT("Spherical"), wxDefaultPosition, wxDefaultSize, 0 );
 	bSizer4->Add( m_button_biegun, 0, wxALL, 5 );
 
 
@@ -310,7 +310,7 @@ MyFrame1::MyFrame1( wxWindow* parent, wxWindowID id, const wxString& title, cons
 	m_checkBoxLine = new wxCheckBox( this, wxID_ANY, wxT("Line"), wxDefaultPosition, wxDefaultSize, 0 );
 	bSizer15->Add( m_checkBoxLine, 0, wxALL, 5 );
 
-	m_checkBoxAnimuj = new wxCheckBox( this, wxID_ANY, wxT("Animacja"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_checkBoxAnimuj = new wxCheckBox( this, wxID_ANY, wxT("Animation"), wxDefaultPosition, wxDefaultSize, 0 );
 	bSizer15->Add( m_checkBoxAnimuj, 0, wxALL, 5 );
 
 
@@ -332,7 +332,7 @@ MyFrame1::MyFrame1( wxWindow* parent, wxWindowID id, const wxString& title, cons
 	this->SetSizer( bSizer1 );
 	this->Layout();
 	m_timer1.SetOwner( this, wxID_ANY );
-	m_timer1.Start( 40 );
+	m_timer1.Start( 20 );
 
 
 	this->Centre( wxBOTH );
