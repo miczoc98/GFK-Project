@@ -1,0 +1,76 @@
+\include{preamble}
+
+\begin{document}
+	\section{Klasy}
+		\subsection{LissajousCurve}
+			Klasa reprezentująca krzywą Lissajous zapisaną w postaci:
+			$$
+				x = Asin(nt + \Phi)
+			$$
+			$$
+				y = Bsin(mt + \Psi)
+			$$
+			$$
+				z = Csin(kt + \Theta)
+			$$
+			lub
+			$$
+				r = Asin(nt + \Phi)
+			$$
+			$$
+				\phi = Bsin(mt + \Psi)
+			$$
+			$$
+				\theta = Csin(kt + \Theta)
+			$$
+			\subsubsection{Metody}
+				\begin{itemize}
+					\item Metoda \lstinline|Point get_pos(double t, bool as_cartesian)| zwraca położenie punktu dla wybranej wartości $t$, we współrzędnych kartezjańskich (\lstinline|as_cartesian = true|) lub sferycznych
+							(\lstinline|as_cartesian = false|)	.
+					\item Settery pozwalają ustawić parametry krzywej.
+				\end{itemize}
+			\subsection{Pola}
+				Klasa zawiera pola odpowiadające parametrom krzywej tj. $A, B, C, n, m, k, \Phi, \Psi, \Theta$.	
+		\subsection{CurveGenerator}
+			Klasa odpowiedzialna za generowanie krzywej w postaci kolejki dwukierunkowej złożonej z odcinków.
+			\subsubsection{Metody}
+				\begin{itemize}
+					\item \lstinline|std::deque<Segment> get_next()| zwraca kolejkę zawierającą krzywą.
+					\item \lstinline|void set_cartesian(bool b)| pozwala ustawić zmienną \lstinline|m_is_cartesian| określającą czy krzywa jest we współrzędnych kartezjańskich czy sferycznych.
+					\item \lstinline|void set_animate(bool b)| ustawia zmienną \lstinline|m_animate| określającą czy krzywa będzie animowana.
+					\item \lstinline|void reset()| usuwa całą wygenerowaną krzywą (wywoływana np. po zmianie parametrów).
+					\item \lstinline|Segment generate_segment()| pozwala wygenerować kolejny odcinek krzywej.					
+					\item Settery parametrów krzywej pozwalają na ustalenie jej kształtu.
+				\end{itemize}
+			\subsubsection{Pola}
+				\begin{itemize}
+					\item \lstinline|double m_t| to obecna wartość parametru $t$ ze wzoru krzywej.
+					\item \lstinline|int m_current_segment_count| określa liczbę wygenerowanych odcinków.
+					\item \lstinline|int m_max_segment_count| to maksymalna liczba odcinków krzywej jeżeli nie jest ona animowana.
+					\item \lstinline|int m_max_animation_segment_count| to maksymalna liczba odcinków krzywej jeżeli jest ona animowana.
+					\item \lstinline|double m_segment_length| to długość pojedynczego segmentu.
+					\item \lstinline|double m_segment_generation_step| to krok o jaki zwiększa się $t$ podczas generowania segmentu w metodzie \lstinline|generate_segment()|.
+					\item \lstinline|bool m_is_cartesian| - prawda jeżeli krzywa jest generowana w układzie kartezjańskim, fałsz jeżeli w sferycznych.
+					\item \lstinline|bool m_animate| - prawda jeżeli krzywa będzie animowana, fałsz jeżeli nie.
+					\item \lstinline|Color color| - kolor obecnie generowanego odcinka, zmienia się zgodnie z algorytmem z sekcji Algorytmy.
+					\item \lstinline|LissajousCurve m_curve| - krzywa na podstawie której generowane są odcinki.
+					\item \lstinline|std::deque<Segment> m_queue| - kolejka do której zapisywane są kolejne segmenty.
+				\end{itemize}
+		\subsection{GUIMyFrame1}
+			Klasa odpowiadająca za obsługę okna programu i rysowanie krzywych.
+			\subsubsection{Metody}
+				\begin{itemize}
+					\item Metody obsługujące wydarzenia \lstinline|wxEvent| czyli przesunięcia suwaków, zaznaczone pola etc.
+					\item \lstinline|void Repaint()| - metoda odpowiadająca za rysowanie krzywej.				
+				\end{itemize}
+			\subsubsection{Pola}
+				\begin{itemize}
+					\item \lstinline|int m_curve_segment_count| - liczba segmentów rysowanej krzywej.
+					\item \lstinline|double m_curve_segment_length| - długość pojedynczego segmentu.
+					\item \lstinline|bool m_cartesian| - czy krzywa jest rysowana we współrzędnych kartezjańskich.
+					\item \lstinline|CurveGenerator m_generator| - generator krzywej.
+					\item \lstinline|std::deque<Segment> m_data| - segmenty krzywej.
+					\item \lstinline|Vector4 m_rotation| - aktualne kąty obrotu kamery we współrzędnych $x$, $y$, $z$. 
+
+				\end{itemize}
+\end{document}
