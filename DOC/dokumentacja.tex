@@ -37,7 +37,8 @@ Dane wejściowe pobierane od użytkownika to rodzaj używanego układu współrz
 Narysowany obraz będzie można obrócić wzdłuż każdej osi za pomocą parametrów X, Y, Z. Jako jednostkę wartości kontowych postanowiono przyjąć stopnie.\\
 Dodatkowo program ma dawać możliwość modyfikacji parametrów krzywych w odpowiednich zakresach:
 \begin{itemize}
-\item $A,B,C, n, m, k$ zakres [0,1]
+\item $A,B,C$ zakres [0,1]
+\item $n, m, k$ zakres [0,10]
 \item $\Theta, \Psi, \Phi, X , Y, Z$ zakres [0, 360]
 \end{itemize}
  
@@ -144,7 +145,7 @@ Do stworzenia interfejsu użytkownika użyto biblioteki wykorzystujące natywne 
 Praca nad projektem została podzielona na dwie główne części: podstawową, na którą złożyły się implementacja GUI, utworzenie klas generujących odpowiednie segmenty krzywej na podstawie wartości ustawionych na suwakach, oraz właściwe rysowanie i obracanie krzywej na ekranie; oraz rozszerzoną, uwzględniającą wszelkie mniejsze poprawki i zaimplementowanie animacji.
 
 \section{Użyta narzędzia programistyczne}
-W projekcie zdecydowano użyć się biblioteki graficznej wxWidgets w celu skonstruowania GUI oraz użyto kilka funkcjonalności standardowej biblioteki C++(jedynego języka programowania użytego podczas tworzenia projektu). Każdy z programistów miał dowolność co do systemu operacyjnego, z którego mógł korzystać oraz użytego kompilatora. Jednak wszyscy zdecydowali pracować się na systemie Windows przy użyciu IDE Visual Studio. Praca była koordynowana przy pomocy sytemu kontroli wersji GIT poprzez użycie GitHuba. Dodatkowo komunikacja odbywała się za pomocą komunikatora głosowego Discord. 
+W projekcie zdecydowano użyć się biblioteki graficznej wxWidgets w celu skonstruowania GUI(dodatkowo skorzystano z programu wxFormBuilder) oraz użyto kilka funkcjonalności standardowej biblioteki C++(jedynego języka programowania użytego podczas tworzenia projektu). Każdy z programistów miał dowolność co do systemu operacyjnego, z którego mógł korzystać oraz użytego kompilatora. Jednak wszyscy zdecydowali pracować się na systemie Windows przy użyciu IDE Visual Studio. Praca była koordynowana przy pomocy sytemu kontroli wersji GIT poprzez użycie GitHuba. Dodatkowo komunikacja odbywała się za pomocą komunikatora głosowego Discord. 
 \section{Podział pracy i analiza czasowa}
 Prace nad projektem rozpoczęły się internetowym spotkaniem 15 maja i trwały trzy tygodnie, a każdy z nich kończył się kolejną konwersacją, na której wymieniane były spostrzeżenia i podporządkowywane były następne zadania. W pierwszym tygodniu wykonana została część podstawowa projektu:
 \begin{itemize}
